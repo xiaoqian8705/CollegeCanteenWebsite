@@ -1,0 +1,28 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: eureka_config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          #指定配置文件的位置
+          search-locations: classpath:/config/dev/
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@192.168.1.109:8002/eureka/
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
