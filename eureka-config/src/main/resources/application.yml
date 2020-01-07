@@ -18,7 +18,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://admin:123456@192.168.1.109:8002/eureka/
+      defaultZone: http://192.168.1.109:8002/eureka/
 
 # ±©Â¶¼à¿Ø¶Ëµã
 management:
