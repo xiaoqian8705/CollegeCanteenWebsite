@@ -26,7 +26,7 @@ function doregister(){
 				alert(data.message);
 			} else {
 				alert("恭喜您注册成功，请使用新账号登录");
-				window.location.href = "/login.html";
+				window.location.href = "../login/login";
 			}
 		},
 		error:function() {
@@ -56,7 +56,7 @@ function doLogin(){
 				alert(data.message);
 			} else {
 				alert("登陆成功");
-				window.location.href = "/index.html?userName="+_unameValue;
+				window.location.href = "/";
 			}
 		},
 		error:function() {

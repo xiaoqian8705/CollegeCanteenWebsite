@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>DeathGhost-用户中心</title>
+<title>DeathGhost-订单详情</title>
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
 <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
 <meta name="author" content="DeathGhost"/>
-<link href="style/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jqpublic.js"></script>
+<link href="../style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jqpublic.js"></script>
 <!--
 Author: DeathGhost
 Author URI: http://www.deathghost.cn
@@ -20,7 +20,7 @@ Author URI: http://www.deathghost.cn
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="register.html">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="../login/register">注册</a>/<a href="../login/login">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
    </div>
    <div class="RightNav">
     <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -29,7 +29,7 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
    <i></i>
    <span>西安市 [ <a href="#">莲湖区</a> ]</span>
   </div>
@@ -71,35 +71,73 @@ Author URI: http://www.deathghost.cn
   </ul>
  </nav>
  <article class="U-article Overflow">
-  <!--user order list-->
-  <section>
-    <table class="Myorder">
-     <th class="Font14 FontW">订单编号</th>
-     <th class="Font14 FontW">下单时间</th>
-     <th class="Font14 FontW">收件人</th>
-     <th class="Font14 FontW">订单总金额</th>
-     <th class="Font14 FontW">订单状态</th>
-     <th class="Font14 FontW">操作</th>
-     <tr>
-      <td class="FontW"><a href="user_order.html">201409225367</a></td>
-      <td>2014-09-22 19:21:38</td>
-      <td>DeathGhost</td>
-      <td>￥328.00</td>
-      <td>未付款,未发货</td>
-      <td><a href="#">取消订单</a> | <a href="#">付款</a></td>
-     </tr>
-    </table>
-    <div class="TurnPage">
-         <a href="#">
-          <span class="Prev"><i></i>首页</span>
-         </a>
-         <a href="#"><span class="PNumber">1</span></a>
-         <a href="#"><span class="PNumber">2</span></a>
-         <a href="#">
-         <span class="Next">最后一页<i></i></span>
-        </a>
-       </div>
-  </section>
+  <span class="Font14 FontW Lineheight35 Block">订单信息：</span>
+   <table class="U-order-D">
+    <th>订单编号</th>
+    <th>订单产品</th>
+    <th>订购数量</th>
+    <th>单价</th>
+    <th>小计</th>
+    <th>配送费用</th>
+    <th>共计金额</th>
+    <th>付款方式</th>
+    <tr>
+     <td>201409243195</td>
+     <td><a href="detailsp.html" target="_blank" title="酸辣土豆丝">酸辣土豆丝</a></td>
+     <td>1</td>
+     <td>￥8.00</td>
+     <td>￥8.00</td>
+     <td>￥2.00</td>
+     <td>￥10.00</td>
+     <td>支付宝</td>
+     <!--如果未付款，则显示立即付款按钮-->
+     <td style="display:none;"><a href="#" target="_blank">立即付款</a></td>
+    </tr>
+   </table>
+  <span class="Font14 FontW Lineheight35 Block">收件地址：</span>
+  <form action="#">
+   <table class="U-order-A">
+    <tr>
+     <td width="30%" align="right" class="FontW">收件地址：</td>
+     <td>
+     <select name="" class="select_ssq">
+      <option>陕西省</option>
+     </select>
+     <select name="" class="select_ssq">
+      <option>西安市</option>
+     </select>
+     <select name="" class="select_ssq">
+      <option>雁塔区</option>
+     </select>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">邮政编码：</td>
+     <td><input type="text" name="" class="input_zipcode"  value="710077" required pattern="[0-9]{6}"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">街道地址：</td>
+     <td><input type="text" name="" class="input_addr" value="丈八北路2000集" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">收件人姓名：</td>
+     <td><input type="text" name="" class="input_name" value="deathghost" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">手机号码：</td>
+     <td><input type="text" name="" class="input_tel" value="1582551819" required pattern="[0-9]{11}"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">订单备注：</td>
+     <td><input type="text" name="" class="input_mark" value="...速度送货哦...谢谢~"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right"></td>
+     <!--未付款订单，可以修改地址！-->
+     <td><input type="submit" name="" value="确认修改地址" class="Submit">（未付款订单，可以修改地址！）</td>
+    </tr>
+   </table>
+   </form>
  </article>
 </section>
 <!--End content-->
@@ -115,8 +153,8 @@ Author URI: http://www.deathghost.cn
   <aside>
    <div class="ewm-left">
     <p>手机扫描二维码：</p>
-    <img src="images/Android_ico_d.gif">
-    <img src="images/iphone_ico_d.gif">
+    <img src="../images/Android_ico_d.gif">
+    <img src="../images/iphone_ico_d.gif">
    </div>
    <div class="tips">
     <p>客服热线</p>
@@ -156,7 +194,7 @@ Author URI: http://www.deathghost.cn
     </div>
   </section>
  </section>
-<div class="copyright">© 版权所有 2016 DeathGhost 技术支持：<a href="http://www.deathghost.cn" title="DeathGhost">DeathGhost</a></div>
+ <div class="copyright">© 版权所有 2016 DeathGhost 技术支持：<a href="http://www.deathghost.cn" title="DeathGhost">DeathGhost</a></div>
 </footer>
 </body>
 </html>

@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>DeathGhost-状态页面</title>
+<title>DeathGhost-注册</title>
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
 <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
 <meta name="author" content="DeathGhost"/>
-<link href="style/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jqpublic.js"></script>
+<link href="../style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jqpublic.js"></script>
+ <script type="text/javascript" src="../js/login.js"></script>
 <!--
 Author: DeathGhost
 Author URI: http://www.deathghost.cn
@@ -20,7 +21,7 @@ Author URI: http://www.deathghost.cn
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="register.html">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="../login/register">注册</a>/<a href="../login/login">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
    </div>
    <div class="RightNav">
     <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -29,7 +30,7 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
    <i></i>
    <span>西安市 [ <a href="#">莲湖区</a> ]</span>
   </div>
@@ -58,24 +59,36 @@ Author URI: http://www.deathghost.cn
 </header>
 <!--Start content-->
 <section class="Psection MT20">
- 系统提示页面...
+
+
+  <table class="Register">
+  <tr>
+  <td width="40%" align="right" class="FontW">用户名：</td>
+  <td><input type="text" id="username" required autofocus></td>
+  </tr>
+  <tr>
+  <td width="40%" align="right" class="FontW">密码：</td>
+  <td><input type="password" id="password" required></td>
+  </tr>
+  <tr>
+  <td width="40%" align="right" class="FontW">再次确认：</td>
+  <td><input type="password" id="password2" required></td>
+  </tr>
+  <tr>
+  <td width="40%" align="right" class="FontW">手机号码：</td>
+  <td><input type="text" id="telephone" required pattern="[0-9]{11}"></td>
+  </tr>
+  <tr>
+  <td width="40%" align="right"></td>
+  <td><input type="button" name="" class="Submit_b" value="注 册" onclick="doregister()" >( 已经是会员，<a href="../login/login" class="BlueA">请登录</a> )</td>
+  </tr>
+  </table>
+
 </section>
-<!--End content-->
-<div class="F-link">
-  <span>友情链接：</span>
-  <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
-  <a href="http://www.17sucai.com/pins/15966.html" target="_blank" title="免费后台管理模板">绿色清爽版通用型后台管理模板免费下载</a>
-  <a href="http://www.17sucai.com/pins/17567.html" target="_blank" title="果蔬菜类模板源码">HTML5果蔬菜类模板源码</a>
-  <a href="http://www.17sucai.com/pins/14931.html" target="_blank" title="黑色的cms商城网站后台管理模板">黑色的cms商城网站后台管理模板</a>
- </div>
+
 <footer>
  <section class="Otherlink">
   <aside>
-   <div class="ewm-left">
-    <p>手机扫描二维码：</p>
-    <img src="images/Android_ico_d.gif">
-    <img src="images/iphone_ico_d.gif">
-   </div>
    <div class="tips">
     <p>客服热线</p>
     <p><i>1830927**73</i></p>

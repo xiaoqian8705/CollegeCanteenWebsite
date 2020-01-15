@@ -6,10 +6,10 @@
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
 <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
 <meta name="author" content="DeathGhost"/>
-<link href="style/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jqpublic.js"></script>
+<link href="../style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jqpublic.js"></script>
 <!--
 Author: DeathGhost
 Author URI: http://www.deathghost.cn
@@ -20,7 +20,7 @@ Author URI: http://www.deathghost.cn
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="register.html">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="../login/register">注册</a>/<a href="../login/login">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
    </div>
    <div class="RightNav">
     <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -29,7 +29,7 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
    <i></i>
    <span>西安市 [ <a href="#">莲湖区</a> ]</span>
   </div>
@@ -71,85 +71,35 @@ Author URI: http://www.deathghost.cn
   </ul>
  </nav>
  <article class="U-article Overflow">
-  <!--user Address-->
-  <section class="Myaddress Overflow">
-   <span class="MDtitle Font14 FontW Block Lineheight35">收货人信息</span>
-   <form action="#">
-   <table>
+  <!--user Account-->
+  <section class="AccManage Overflow">
+   <span class="AMTitle Block Font14 FontW Lineheight35">账户管理</span>
+   <p>登陆邮箱：232***413@qq.com ( <a href="#" target="_blank">更换手机号码</a> )</p>
+   <p>手机号码：183****5673 ( <a href="#" target="_blank">更换手机号码</a> ) ( <a href="#" target="_blank">解绑手机</a> )</p>
+   <p>上次登陆：2014年09月22日 11:40:36( *如非本人登陆，请立即<a href="#" target="_blank">修改您的密码</a>！ )</p>
+   <form>
+    <table>
     <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">选择所在地：</td>
-     <td>
-     <select name="" class="select_ssq">
-      <option>陕西省</option>
-     </select>
-     <select name="" class="select_ssq">
-     <option>西安市</option>
-     </select>
-     <select name="" class="select_ssq">
-     <option>莲湖区</option>
-     </select>
-     </td>
+    <td width="30%" align="right">*修改头像：</td>
+    <td><input name="" type="file"><button>确定</button></td>
     </tr>
     <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">收件人姓名：</td>
-     <td><input type="text" name="" required value="DeathGhost" class="input_name"></td>
+    <td width="30%" align="right">*昵称：</td>
+    <td><input type="text" name="" value="DeathGhost"></td>
     </tr>
     <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">街道地址：</td>
-     <td><input type="text" required size="50" value="丈八路144号" class="input_addr"></td>
+    <td width="30%" align="right">*邮箱：</td>
+    <td><input type="email" name="" value="232650413@qq.com"></td>
     </tr>
     <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">邮政编码：</td>
-     <td><input type="text" required size="10" pattern="[0-9]{6}" value="727444" class="input_zipcode"></td>
+    <td width="30%" align="right">*手机：</td>
+    <td><input type="tel" name="" value="18309275673"></td>
     </tr>
     <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">手机号码：</td>
-     <td><input type="text" name="" required pattern="[0-9]{11}" value="18309275673" class="input_tel"></td>
+    <td></td>
+    <td><input name="" type="submit" value="保 存"></td>
     </tr>
-    <tr>
-     <td align="right"  width="30%" class="Font14 FontW Lineheight35"></td>
-     <td class="Lineheight35"><input name="" type="submit" value="确认修改" class="Submit"><input name="" type="submit" value="删除" class="Submit"></td>
-    </tr>
-   </table>
-   </form>
-   <!--add new address-->
-   <form action="#">
-    <table style="margin-top:10px;">
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">选择所在地：</td>
-     <td>
-     <select name="" class="select_ssq">
-      <option>陕西省</option>
-     </select>
-     <select name="" class="select_ssq">
-     <option>西安市</option>
-     </select>
-     <select name="" class="select_ssq">
-     <option>莲湖区</option>
-     </select>
-     </td>
-    </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">收件人姓名：</td>
-     <td><input type="text" name="" required  class="input_name"></td>
-    </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">街道地址：</td>
-     <td><input type="text" required  class="input_addr"></td>
-    </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">邮政编码：</td>
-     <td><input type="text" required pattern="[0-9]{6}"  class="input_zipcode"></td>
-    </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">手机号码：</td>
-     <td><input type="text" name="" required pattern="[0-9]{11}" class="input_tel"></td>
-    </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right"></td>
-     <td class="Font14 Font Lineheight35"><input name="" type="submit" value="新增收货地址"  class="Submit"></td>
-    </tr>
-   </table>
+    </table>
    </form>
   </section>
  </article>
@@ -167,8 +117,8 @@ Author URI: http://www.deathghost.cn
   <aside>
    <div class="ewm-left">
     <p>手机扫描二维码：</p>
-    <img src="images/Android_ico_d.gif">
-    <img src="images/iphone_ico_d.gif">
+    <img src="../images/Android_ico_d.gif">
+    <img src="../images/iphone_ico_d.gif">
    </div>
    <div class="tips">
     <p>客服热线</p>

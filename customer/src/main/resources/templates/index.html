@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
 <title>DeathGhost</title>
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
 <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
 <meta name="author" content="DeathGhost"/>
-<link href="style/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jqpublic.js"></script>
+<link href="../style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/public.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jqpublic.js"></script>
 <!--
 Author: DeathGhost
 Author URI: http://www.deathghost.cn
@@ -23,14 +23,20 @@ Author URI: http://www.deathghost.cn
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
-   <script>
-    var name = $.getUrlParam('userName');
-    window.onload = function(){
-     $("#addname").val(userName);
-    }
+   <script th:inline="javascript">
+    $(document).ready(function(){
+    var customer=[[${session.USER}]]
+     if(customer!=null&&customer!=""){
+      $("#d1").hide();
+      $("#d2").text("欢迎您："+customer ).show();
+     }
+    });
    </script>
+
+
+
    <div class="LeftNav">
-    <a href="register.html">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
     <p id="addname"></p>
    </div>
    <div class="RightNav">
@@ -40,7 +46,7 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
    <i></i>
    <span>西安市 [ <a href="#">莲湖区</a> ]</span>
   </div>
@@ -72,16 +78,16 @@ Author URI: http://www.deathghost.cn
  <aside class="C-left">
   <div class="S-time">服务时间：周一~周六<time>09:00</time>-<time>23:00</time></div>
   <div class="C-time">
-   <img src="upload/dc.jpg"/>
+   <img src="../upload/dc.jpg"/>
   </div>
-  <a href="list.html" target="_blank"><img src="images/by_button.png"></a>
-  <a href="list.html" target="_blank"><img src="images/dc_button.png"></a>
+  <a href="list.html" target="_blank"><img src="../images/by_button.png"></a>
+  <a href="list.html" target="_blank"><img src="../images/dc_button.png"></a>
  </aside>
  <div class="F-middle">
  <ul class="rslides f426x240">
-        <li><a href="javascript:"><img src="upload/01.jpg"/></a></li>
-        <li><a href="javascript:"><img src="upload/02.jpg" /></a></li>
-        <li><a href="javascript:"><img src="upload/03.jpg"/></a></li>
+        <li><a href="javascript:"><img src="../upload/01.jpg"/></a></li>
+        <li><a href="javascript:"><img src="../upload/02.jpg" /></a></li>
+        <li><a href="javascript:"><img src="../upload/03.jpg"/></a></li>
     </ul>
  </div>
  <aside class="N-right">
@@ -161,7 +167,7 @@ Author URI: http://www.deathghost.cn
      <div class="SCcontent">
      <a href="detailsp.html" target="_blank" title="菜品名称">
       <figure>
-       <img src="upload/05.jpg">
+       <img src="../upload/05.jpg">
        <figcaption>
        <span class="title">老李家的糖醋鲤鱼</span>
        <span class="price"><i>￥</i>169.00</span>
@@ -170,7 +176,7 @@ Author URI: http://www.deathghost.cn
       </a>
      <a href="detailsp.html" target="_blank" title="菜品名称">
       <figure>
-       <img src="upload/04.jpg">
+       <img src="../upload/04.jpg">
        <figcaption>
        <span class="title">老李家的糖醋鲤鱼</span>
        <span class="price"><i>￥</i>169.00</span>
@@ -179,7 +185,7 @@ Author URI: http://www.deathghost.cn
       </a>
      <a href="detailsp.html" target="_blank" title="菜品名称">
       <figure>
-       <img src="upload/06.jpg">
+       <img src="../upload/06.jpg">
        <figcaption>
        <span class="title">老李家的糖醋鲤鱼</span>
        <span class="price"><i>￥</i>169.00</span>
@@ -190,27 +196,27 @@ Author URI: http://www.deathghost.cn
      <div class="bestshop">
       <a href="shop.html" target="_blank" title="店铺名称">
       <figure>
-       <img src="upload/wpjnewlogo.jpg">
+       <img src="../upload/wpjnewlogo.jpg">
       </figure>
       </a>
       <a href="shop.html" target="_blank" title="店铺名称">
       <figure>
-       <img src="upload/weijia.jpg">
+       <img src="../upload/weijia.jpg">
       </figure>
       </a>
       <a href="shop.html" target="_blank" title="店铺名称">
       <figure>
-       <img src="upload/wpjnewlogo.jpg">
+       <img src="../upload/wpjnewlogo.jpg">
       </figure>
       </a>
       <a href="shop.html" target="_blank" title="店铺名称">
       <figure>
-       <img src="upload/weijia.jpg">
+       <img src="../upload/weijia.jpg">
       </figure>
       </a>
       <a href="shop.html" target="_blank" title="店铺名称">
       <figure>
-       <img src="upload/wpjnewlogo.jpg">
+       <img src="../upload/wpjnewlogo.jpg">
       </figure>
       </a>
      </div>
@@ -236,7 +242,7 @@ Author URI: http://www.deathghost.cn
      <div class="DCcontent">
        <a href="shop.html" target="_blank" title="TITLE:店名">
        <figure>
-       <img src="upload/cc.jpg">
+       <img src="../upload/cc.jpg">
        <figcaption>
        <span class="title">老重庆川菜馆</span>
        <span class="price">预定折扣：<i>8.9折</i></span>
@@ -244,18 +250,18 @@ Author URI: http://www.deathghost.cn
        <p class="p1"><q>仅售169元！价值289元的4-5人餐，提供免费WiFi。</q></p>
        <p class="p2">
        店铺评分：
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-off.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-off.png">
        </p>
        <p class="p3">店铺地址：西安市雁塔区丈八路***老重庆川菜馆...</p>
        </figure>
       </a>
        <a href="shop.html" target="_blank" title="TITLE:店名">
        <figure>
-       <img src="upload/cc.jpg">
+       <img src="../upload/cc.jpg">
        <figcaption>
        <span class="title">老重庆川菜馆</span>
        <span class="price">预定折扣：<i>8.9折</i></span>
@@ -263,18 +269,18 @@ Author URI: http://www.deathghost.cn
        <p class="p1"><q>仅售169元！价值289元的4-5人餐，提供免费WiFi。</q></p>
        <p class="p2">
        店铺评分：
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-off.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-off.png">
        </p>
        <p class="p3">店铺地址：西安市雁塔区丈八路***老重庆川菜馆...</p>
        </figure>
       </a>
        <a href="shop.html" target="_blank" title="TITLE:店名">
        <figure>
-       <img src="upload/cc.jpg">
+       <img src="../upload/cc.jpg">
        <figcaption>
        <span class="title">老重庆川菜馆</span>
        <span class="price">预定折扣：<i>8.9折</i></span>
@@ -282,11 +288,11 @@ Author URI: http://www.deathghost.cn
        <p class="p1"><q>仅售169元！价值289元的4-5人餐，提供免费WiFi。</q></p>
        <p class="p2">
        店铺评分：
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-on.png">
-       <img src="images/star-off.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-on.png">
+       <img src="../images/star-off.png">
        </p>
        <p class="p3">店铺地址：西安市雁塔区丈八路***老重庆川菜馆...</p>
        </figure>
@@ -298,16 +304,16 @@ Author URI: http://www.deathghost.cn
  </div>
  </article>
  <aside class="A-infor">
-  <img src="upload/2014911.jpg">
+  <img src="../upload/2014911.jpg">
   <div class="usercomment">
    <span>用户菜品点评</span>
    <ul>
     <li>
-     <img src="upload/01.jpg">
+     <img src="../upload/01.jpg">
      用户“DeathGhost”对[ 老李川菜馆 ]“酸辣土豆丝”评说：味道挺不错，送餐速度挺快...
     </li>
     <li>
-     <img src="upload/02.jpg">
+     <img src="../upload/02.jpg">
      用户“DeathGhost”对[ 魏家凉皮 ]“酸辣土豆丝”评说：味道挺不错，送餐速度挺快...
     </li>
    </ul>
@@ -327,8 +333,8 @@ Author URI: http://www.deathghost.cn
   <aside>
    <div class="ewm-left">
     <p>手机扫描二维码：</p>
-    <img src="images/Android_ico_d.gif">
-    <img src="images/iphone_ico_d.gif">
+    <img src="../images/Android_ico_d.gif">
+    <img src="../images/iphone_ico_d.gif">
    </div>
    <div class="tips">
     <p>客服热线</p>
