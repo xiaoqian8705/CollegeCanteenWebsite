@@ -39,4 +39,10 @@ public class LoginController {
     public String register(){
         return "register";
     }
+
+    @RequestMapping( "/cart")
+    public String cart(){
+        return "cart";
+    }
+
 }

@@ -475,7 +475,7 @@ code::selection {background:#dddddd;}
 .jz2{ width:100px; height:46px; line-height:46px; text-align:center; font-size:18px;font-weight:bold; color:#fff; background:#ff0000; display:block; float:right;}
 #jz1{font-size:18px;font-weight:bold;color:#999;}
 .GoBack_Buy a{ width:100px; height:46px; line-height:46px; text-align:center;color:#fff; background:#333; display:block; float:right;}
-/******confirm_order.html*******/
+/******../confirm_order*******/
  /*if Not defined Address*/
  .confirm_addr_f{width:1200px;height:auto;overflow:hidden;padding:8px 0;}
  .flow_title{font-size:16px;border-top:2px #cccccc solid;background:#f1f1f1;display:block;font-weight:bold;height:35px;line-height:35px;padding-left:8px;}
