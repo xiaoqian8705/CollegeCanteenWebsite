@@ -2,25 +2,22 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>DeathGhost-用户中心</title>
-<meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
-<meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
-<meta name="author" content="DeathGhost"/>
+<title>用户中心-收货地址</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content=""/>
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/jqpublic.js"></script>
-<!--
-Author: DeathGhost
-Author URI: http://www.deathghost.cn
--->
+
 </head>
 <body>
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -29,9 +26,7 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
-   <i></i>
-   <span>西安市 [ <a href="#">莲湖区</a> ]</span>
+   <img src="../images/logo.jpg" title="" alt="">
   </div>
   <div class="Search"> 
    <form method="get" id="main_a_serach" onsubmit="return check_search(this)">
@@ -51,7 +46,6 @@ Author URI: http://www.deathghost.cn
   <ul class="menu">
    <li><a href="/">首页</a></li>
    <li><a href="../list">订餐</a></li>
-   <li><a href="../category">积分商城</a></li>
    <li><a href="../article_read">关于我们</a></li>
   </ul>
  </nav>
@@ -80,28 +74,28 @@ Author URI: http://www.deathghost.cn
      <td width="30%" class="Font14 FontW Lineheight35" align="right">选择所在地：</td>
      <td>
      <select name="" class="select_ssq">
-      <option>陕西省</option>
+      <option>福建省</option>
      </select>
      <select name="" class="select_ssq">
-     <option>西安市</option>
+     <option>福州市</option>
      </select>
      <select name="" class="select_ssq">
-     <option>莲湖区</option>
+     <option>大学城</option>
      </select>
      </td>
     </tr>
     <tr>
      <td width="30%" class="Font14 FontW Lineheight35" align="right">收件人姓名：</td>
-     <td><input type="text" name="" required value="DeathGhost" class="input_name"></td>
+     <td><input type="text" name="" required value="llllll" class="input_name"></td>
     </tr>
     <tr>
      <td width="30%" class="Font14 FontW Lineheight35" align="right">街道地址：</td>
-     <td><input type="text" required size="50" value="丈八路144号" class="input_addr"></td>
+     <td><input type="text" required size="50" value="福建江夏" class="input_addr"></td>
     </tr>
-    <tr>
-     <td width="30%" class="Font14 FontW Lineheight35" align="right">邮政编码：</td>
-     <td><input type="text" required size="10" pattern="[0-9]{6}" value="727444" class="input_zipcode"></td>
-    </tr>
+<!--    <tr>-->
+<!--     <td width="30%" class="Font14 FontW Lineheight35" align="right">邮政编码：</td>-->
+<!--     <td><input type="text" required size="10" pattern="[0-9]{6}" value="727444" class="input_zipcode"></td>-->
+<!--    </tr>-->
     <tr>
      <td width="30%" class="Font14 FontW Lineheight35" align="right">手机号码：</td>
      <td><input type="text" name="" required pattern="[0-9]{11}" value="18309275673" class="input_tel"></td>
@@ -119,13 +113,13 @@ Author URI: http://www.deathghost.cn
      <td width="30%" class="Font14 FontW Lineheight35" align="right">选择所在地：</td>
      <td>
      <select name="" class="select_ssq">
-      <option>陕西省</option>
+      <option>福建省</option>
      </select>
      <select name="" class="select_ssq">
-     <option>西安市</option>
+     <option>福州市</option>
      </select>
      <select name="" class="select_ssq">
-     <option>莲湖区</option>
+     <option>大学城</option>
      </select>
      </td>
     </tr>
@@ -137,10 +131,10 @@ Author URI: http://www.deathghost.cn
      <td width="30%" class="Font14 FontW Lineheight35" align="right">街道地址：</td>
      <td><input type="text" required  class="input_addr"></td>
     </tr>
-    <tr>
+    <!--<tr>
      <td width="30%" class="Font14 FontW Lineheight35" align="right">邮政编码：</td>
      <td><input type="text" required pattern="[0-9]{6}"  class="input_zipcode"></td>
-    </tr>
+    </tr>-->
     <tr>
      <td width="30%" class="Font14 FontW Lineheight35" align="right">手机号码：</td>
      <td><input type="text" name="" required pattern="[0-9]{11}" class="input_tel"></td>
@@ -155,13 +149,7 @@ Author URI: http://www.deathghost.cn
  </article>
 </section>
 <!--End content-->
-<div class="F-link">
-  <span>友情链接：</span>
-  <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
-  <a href="http://www.17sucai.com/pins/15966.html" target="_blank" title="免费后台管理模板">绿色清爽版通用型后台管理模板免费下载</a>
-  <a href="http://www.17sucai.com/pins/17567.html" target="_blank" title="果蔬菜类模板源码">HTML5果蔬菜类模板源码</a>
-  <a href="http://www.17sucai.com/pins/14931.html" target="_blank" title="黑色的cms商城网站后台管理模板">黑色的cms商城网站后台管理模板</a>
- </div>
+
 <footer>
  <section class="Otherlink">
   <aside>
@@ -208,7 +196,6 @@ Author URI: http://www.deathghost.cn
     </div>
   </section>
  </section>
-<div class="copyright">© 版权所有 2016 DeathGhost 技术支持：<a href="http://www.deathghost.cn" title="DeathGhost">DeathGhost</a></div>
 </footer>
 </body>
 </html>

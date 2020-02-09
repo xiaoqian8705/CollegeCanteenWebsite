@@ -2,21 +2,14 @@
 <html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
-<title>DeathGhost</title>
-<meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
-<meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
-<meta name="author" content="DeathGhost"/>
+<title>首页</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content=""/>
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/js/public.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/jqpublic.js"></script>
-<!--
-Author: DeathGhost
-Author URI: http://www.deathghost.cn
--->
-<script>
-
-</script>
 </head>
 
 <body>
@@ -33,22 +26,23 @@ Author URI: http://www.deathghost.cn
     });
    </script>
 
-
-
    <div class="LeftNav">
-    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
     <p id="addname"></p>
    </div>
    <div class="RightNav">
-    <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+    <a href="../user_center">用户中心</a>
+    <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a>
+    <a href="../cart">购物车（0）</a>
+    <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a>
+    <a href="#">商家入驻</a>
    </div>
   </div>
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
-   <i></i>
-   <span>西安市 [ <a href="#">莲湖区</a> ]</span>
+   <img src="../images/logo.jpg" title="" alt="">
+<!--   <h1>高校食堂外卖</h1>-->
   </div>
   <div class="Search"> 
    <form method="get" id="main_a_serach" onsubmit="return check_search(this)">
@@ -57,60 +51,59 @@ Author URI: http://www.deathghost.cn
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
    <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
+   <input type="search" id="fkeyword" name="keyword" placeholder="请输入..." class="searchbox" />
    <input type="submit" class="searchbutton" value="搜 索" />
    </div>
    </form>
-   <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
+   <p class="hotkeywords">
+    <a href="#" title="酸辣土豆丝">酸辣土豆丝</a>
+    <a href="#" title="这里是产品名称">兰州拉面</a>
+    <a href="#" title="这里是产品名称">烤面包</a>
+    <a href="#" title="这里是产品名称">芝麻酱凉面</a>
+    <a href="#" title="这里是产品名称">滑蛋虾仁</a>
+    <a href="#" title="这里是产品名称">蒜汁茄子</a>
+   </p>
   </div>
  </div>
  <nav class="menu_bg">
   <ul class="menu">
    <li><a href="/">首页</a></li>
    <li><a href="../list">订餐</a></li>
-   <li><a href="../category">积分商城</a></li>
    <li><a href="../article_read">关于我们</a></li>
   </ul>
  </nav>
 </header>
 <!--Start content-->
 <section class="Cfn">
- <aside class="C-left">
-  <div class="S-time">服务时间：周一~周六<time>09:00</time>-<time>23:00</time></div>
+ <!--<aside class="C-left">
+  <div class="S-time">服务时间：<time>10:00</time>-<time>20:00</time></div>
   <div class="C-time">
    <img src="../upload/dc.jpg"/>
   </div>
   <a href="../list" target="_blank"><img src="../images/by_button.png"></a>
   <a href="../list" target="_blank"><img src="../images/dc_button.png"></a>
- </aside>
+ </aside>-->
  <div class="F-middle">
  <ul class="rslides f426x240">
-        <li><a href="javascript:"><img src="../upload/01.jpg"/></a></li>
-        <li><a href="javascript:"><img src="../upload/02.jpg" /></a></li>
-        <li><a href="javascript:"><img src="../upload/03.jpg"/></a></li>
+        <li><a href="javascript:"><img src="../upload/03.jpg" width="900" height="403"/></a></li>
+        <li><a href="javascript:"><img src="../upload/02.jpg" width="900" height="403"/></a></li>
+        <li><a href="javascript:"><img src="../upload/01.jpg" width="900" height="403"/></a></li>
     </ul>
  </div>
  <aside class="N-right">
-  <div class="N-title">公司新闻 <i>COMPANY NEWS</i></div>
-  <ul class="Newslist">
-   <li><i></i><a href="../article_read" target="_blank" title="这里调用新闻标题...">欢迎访问DeathGhost博客站...</a></li>
-   <li><i></i><a href="../article_read" target="_blank" title="这里调用新闻标题...">H5WEB前端开发 移动WEB模板设计...</a></li>
-  </ul>
+  <div class="N-title">公告栏 </div>
   <ul class="Orderlist" id="UpRoll">
    <li>
-   <p>订单编号：2014090912973</p>
-   <p>收件人：王先生</p>
-   <p>订单状态：<i class="State01">已发货</i></p>
+   <p>欢迎欢迎热列欢迎</p>
+   <p>本网站便捷好用</p>
    </li>
    <li>
-   <p>订单编号：2014090912978</p>
-   <p>收件人：张小姐</p>
-   <p>订单状态：<i class="State02">已签收</i><i class="State03">已点评</i></p>
+    <p>欢迎欢迎热列欢迎</p>
+    <p>本网站便捷好用</p>
    </li>
    <li>
-   <p>订单编号：2014090912988</p>
-   <p>收件人：龚先生</p>
-   <p>订单状态：<i class="State02">已签收</i><i class="State03">已点评</i></p>
+    <p>欢迎欢迎热列欢迎</p>
+    <p>本网站便捷好用</p>
    </li>
   </ul>
   <script>
@@ -136,34 +129,20 @@ Author URI: http://www.deathghost.cn
  <article class="Sflist">
   <div id="Indexouter">
    <ul id="Indextab">
-    <li class="current">点菜</li>
-    <li>餐馆</li>
-    <p class="class_B">
-    <a href="#">中餐</a>
+    <li class="current">热门精选</li>
+    <!--<p class="class_B">
+    <a href="#">简餐</a>
+    <a href="#">面食</a>
     <a href="#">西餐</a>
-    <a href="#">甜点</a>
-    <a href="#">日韩料理</a>
+    <a href="#">甜品</a>
+    <a href="#">水果</a>
+    <a href="#">饮品</a>
     <span><a href="#" target="_blank">more ></a></span>
-    </p>
+    </p>-->
    </ul>
   <div id="Indexcontent">
    <ul style="display:block;">
     <li>
-     <p class="seekarea">
-     <a href="#">碑林区</a>
-     <a href="#">新城区</a>
-     <a href="#">未央区</a>
-     <a href="#">雁塔区</a>
-     <a href="#">莲湖区</a>
-     <a href="#">高新区</a>
-     <a href="#">灞桥区</a>
-     <a href="#">高陵区</a>
-     <a href="#">阎良区</a>
-     <a href="#">临潼区</a>
-     <a href="#">长安区</a>
-     <a href="#">周至县</a>
-     <a href="#">蓝田县 </a>
-     </p>
      <div class="SCcontent">
      <a href="../detailsp" target="_blank" title="菜品名称">
       <figure>
@@ -192,8 +171,22 @@ Author URI: http://www.deathghost.cn
        </figcaption>
       </figure>
       </a>
+        <a href="../detailsp" target="_blank" title="菜品名称">
+         <figure>
+             <img src="../upload/04.jpg">
+             <figcaption>
+                 <span class="title">老李家的糖醋鲤鱼</span>
+                 <span class="price"><i>￥</i>169.00</span>
+             </figcaption>
+         </figure>
+     </a>
      </div>
      <div class="bestshop">
+         <a href="../shop" target="_blank" title="店铺名称">
+             <figure>
+                 <img src="../upload/wpjnewlogo.jpg">
+             </figure>
+         </a>
       <a href="../shop" target="_blank" title="店铺名称">
       <figure>
        <img src="../upload/wpjnewlogo.jpg">
@@ -219,10 +212,11 @@ Author URI: http://www.deathghost.cn
        <img src="../upload/wpjnewlogo.jpg">
       </figure>
       </a>
+
      </div>
     </li>
    </ul>
-   <ul>
+  <!-- <ul>
   <li>
      <p class="seekarea">
      <a href="#">碑林区</a>
@@ -299,11 +293,11 @@ Author URI: http://www.deathghost.cn
       </a>
      </div>
   </li>
-  </ul>
+  </ul>-->
  </div>
  </div>
  </article>
- <aside class="A-infor">
+ <!--<aside class="A-infor">
   <img src="../upload/2014911.jpg">
   <div class="usercomment">
    <span>用户菜品点评</span>
@@ -318,29 +312,23 @@ Author URI: http://www.deathghost.cn
     </li>
    </ul>
   </div>
- </aside>
+ </aside>-->
 </section>
 <!--End content-->
-<div class="F-link">
-  <span>友情链接：</span>
-  <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
-  <a href="http://www.17sucai.com/pins/15966.html" target="_blank" title="免费后台管理模板">绿色清爽版通用型后台管理模板免费下载</a>
-  <a href="http://www.17sucai.com/pins/17567.html" target="_blank" title="果蔬菜类模板源码">HTML5果蔬菜类模板源码</a>
-  <a href="http://www.17sucai.com/pins/14931.html" target="_blank" title="黑色的cms商城网站后台管理模板">黑色的cms商城网站后台管理模板</a>
- </div>
+
 <footer>
  <section class="Otherlink">
   <aside>
    <div class="ewm-left">
-    <p>手机扫描二维码：</p>
+    <p>扫描二维码关注我们：</p>
     <img src="../images/Android_ico_d.gif">
     <img src="../images/iphone_ico_d.gif">
    </div>
    <div class="tips">
     <p>客服热线</p>
-    <p><i>1830927**73</i></p>
+    <p><i>123456**89</i></p>
     <p>配送时间</p>
-    <p><time>09：00</time>~<time>22:00</time></p>
+    <p><time>10：00</time>~<time>20:00</time></p>
     <p>网站公告</p>
    </div>
   </aside>
@@ -374,7 +362,6 @@ Author URI: http://www.deathghost.cn
     </div>
   </section>
  </section>
-<div class="copyright">© 版权所有 2016 DeathGhost 技术支持：<a href="http://www.deathghost.cn" title="DeathGhost">DeathGhost</a></div>
 </footer>
 </body>
 </html>
