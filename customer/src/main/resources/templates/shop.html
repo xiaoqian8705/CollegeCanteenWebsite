@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>DeathGhost-我的店铺</title>
-<meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
-<meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
-<meta name="author" content="DeathGhost"/>
+<title>进入店铺</title>
+<meta name="keywords" content="" />
+<meta name="description" content=" " />
+<meta name="author" content=""/>
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
@@ -53,17 +53,14 @@ window.onload = function () {
           }
         }
 </script>
-<!--
-Author: DeathGhost
-Author URI: http://www.deathghost.cn
--->
+
 </head>
 <body>
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -72,18 +69,16 @@ Author URI: http://www.deathghost.cn
  </section>
  <div class="Logo_search">
   <div class="Logo">
-   <img src="../images/logo.jpg" title="DeathGhost" alt="模板">
-   <i></i>
-   <span>西安市 [ <a href="#">莲湖区</a> ]</span>
+   <img src="../images/logo.jpg" title="DeathGhost" alt="">
   </div>
   <div class="Search"> 
    <form method="get" id="main_a_serach" onsubmit="return check_search(this)">
    <div class="Search_nav" id="selectsearch">
-    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
-    <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
+    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">店铺</a>
+    <a href="javascript:;" onClick="selectsearch(this,'food_name')">商品</a>
    </div>
    <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
+   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的店铺名称或食物名称..." class="searchbox" />
    <input type="submit" class="searchbutton" value="搜 索" />
    </div>
    </form>
@@ -94,7 +89,6 @@ Author URI: http://www.deathghost.cn
   <ul class="menu">
    <li><a href="/">首页</a></li>
    <li><a href="../list">订餐</a></li>
-   <li><a href="../category">积分商城</a></li>
    <li><a href="../article_read">关于我们</a></li>
   </ul>
  </nav>
@@ -135,23 +129,23 @@ Author URI: http://www.deathghost.cn
       <a href="#ydwm"><span class="DCbutton">查看菜谱点菜</span></a>
      </div>
      <div class="otherinfor">
-     <a href="#" class="icoa"><img src="../images/collect.png">收藏店铺（1293）</a>
+     <a href="#" class="icoa"><img src="../images/collect.png">收藏店铺（123）</a>
      <div class="bshare-custom"><a title="分享" class="bshare-more bshare-more-icon more-style-addthis">分享</a></div>
 	 <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
      </div>
    </div>
   </div>
   <div class="shopcontent">
-  <div class="title2 cf">
+   <div class="title2 cf">
     <ul class="title-list fr cf ">
       <li class="on">菜谱</li>
-      <li>累计评论（5）</li>
-      <li>商家详情</li>
-      <li>店铺留言</li>
+      <li>评论</li>
+      <!--<li>商家详情</li>
+      <li>店铺留言</li>-->
       <p><b></b></p>
     </ul>
   </div>
-  <div class="menutab-wrap">
+   <div class="menutab-wrap">
    <a name="ydwm">
     <!--case1-->
     <div class="menutab show">
@@ -214,7 +208,7 @@ Author URI: http://www.deathghost.cn
     </div>
     </a>
     <!--case2-->
-    <div class="menutab">
+   <div class="menutab">
      <div class="shopcomment">
       <div class="Spname">
        <a href="#" target="_blank" title="酸辣土豆丝">酸辣土豆丝</a>
@@ -229,10 +223,10 @@ Author URI: http://www.deathghost.cn
      </div>
     </div>
     <!--case4-->
-    <div class="menutab">
+   <!-- <div class="menutab">
      <div class="shopdetails">
      <div class="shopmaparea">
-      <img src="../upload/testimg.jpg"><!--此处占位图调用动态地图后将其删除即可-->
+      <img src="../upload/testimg.jpg">&lt;!&ndash;此处占位图调用动态地图后将其删除即可&ndash;&gt;
      </div>
      <div class="shopdetailsT">
       <p><span>店铺：外婆家</span></p>
@@ -242,9 +236,9 @@ Author URI: http://www.deathghost.cn
       <p><span>店铺介绍：</span>***于2005年3月28日开业，立于西安市碑林区***于2005年3月28日开业，立于西安市碑林区***于2005年3月28日开业，立于西安市碑林区***于2005年3月28日开业，立于西安市碑林区***</p>
      </div>
     </div>
-    </div>
+    </div>-->
     <!--case5-->
-    <div class="menutab">
+    <!--<div class="menutab">
      <span class="Ask"><i>DeathGhost</i>:这里是测试问答？</span>
      <span class="Answer"><i>管理员回复</i>：这里是测试回答！</span>
 
@@ -266,11 +260,13 @@ Author URI: http://www.deathghost.cn
       <p><i>问题补充：</i><textarea name="" cols="" rows="" required placeholder="详细说明您的问题..."></textarea></p>
       <p><input type="submit" class="Abutt" /></p>
      </form>
-    </div>
+    </div>-->
   </div>
 </div>
+  </div>>
  </article>
  <aside>
+<!--  移动购物车-->
   <div class="cart" id="Topcart">
 	<span class="Ctitle Block FontW Font14"><a href="../cart" target="_blank">我的购物车</a></span>
 	<table id="cartcontent" fitColumns="true">
@@ -286,20 +282,36 @@ Author URI: http://www.deathghost.cn
   </div>
   
   <div class="Nearshop">
-   <span class="Nstitle">附近其他店铺</span>
+   <span class="Nstitle">其它精选</span>
    <ul>
     <li>
      <img src="../upload/cc.jpg">
      <p>
+      <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
+      <!--     <span class="Discolor">距离：1.2KM</span>-->
+      <span title="完整地址title">地址：西安市雁塔区2000号...</span>
+     </p>
+    </li>
+    <li>
+     <img src="../upload/cc.jpg">
+     <p>
+      <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
+      <!--     <span class="Discolor">距离：1.2KM</span>-->
+      <span title="完整地址title">地址：西安市雁塔区2000号...</span>
+     </p>
+    </li>
+    <li>
+     <img src="../upload/cc.jpg">
+     <p>
      <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
-     <span class="Discolor">距离：1.2KM</span>
+<!--     <span class="Discolor">距离：1.2KM</span>-->
      <span title="完整地址title">地址：西安市雁塔区2000号...</span>
      </p>
     </li>
    </ul>
   </div>
   
-  <div class="History">
+  <!--<div class="History">
    <span class="Htitle">浏览历史</span>
    <ul>
     <li>
@@ -311,18 +323,18 @@ Author URI: http://www.deathghost.cn
     </li>
     <span>[ <a href="#">清空历史记录</a> ]</span>
    </ul>
-  </div>
+  </div>-->
  </aside>
  
 </section>
 <!--End content-->
-<div class="F-link">
+<!--<div class="F-link">
   <span>友情链接：</span>
   <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
   <a href="http://www.17sucai.com/pins/15966.html" target="_blank" title="免费后台管理模板">绿色清爽版通用型后台管理模板免费下载</a>
   <a href="http://www.17sucai.com/pins/17567.html" target="_blank" title="果蔬菜类模板源码">HTML5果蔬菜类模板源码</a>
   <a href="http://www.17sucai.com/pins/14931.html" target="_blank" title="黑色的cms商城网站后台管理模板">黑色的cms商城网站后台管理模板</a>
- </div>
+ </div>-->
 <footer>
  <section class="Otherlink">
   <aside>
@@ -369,7 +381,7 @@ Author URI: http://www.deathghost.cn
     </div>
   </section>
  </section>
-<div class="copyright">© 版权所有 2016 DeathGhost 技术支持：<a href="http://www.deathghost.cn" title="DeathGhost">DeathGhost</a></div>
+
 </footer>
 
 </body>
