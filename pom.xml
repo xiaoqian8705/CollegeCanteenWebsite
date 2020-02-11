@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>customer</module>
+        <module>admin</module>
     </modules>
 
     <groupId>com.jiangxiaCollege.CollegeCanteenWebsite</groupId>
