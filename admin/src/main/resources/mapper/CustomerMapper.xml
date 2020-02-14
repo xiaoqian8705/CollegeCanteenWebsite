@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指明当前xml对应的Mapper -->
+<mapper namespace="com.jiangxiacollege.canteenwebsite.admin.mapper.CustomerMapper">
+    <!-- 多表查询,Select 的as后面的名称必须与UserVO属性名大小写一致  -->
+    <select id="selectCustomerListPage" parameterType="com.jiangxiacollege.canteenwebsite.admin.vo.CustomerVO" resultType="com.jiangxiacollege.canteenwebsite.admin.vo.CustomerVO">
+        SELECT
+        s.id as id,
+        s.user_name as user_name,
+        s.password as password,
+        s.phone as phone,
+        s.sex as sex,
+
+        s.school as school,
+        s.grade as grade
+
+        <!--             r.name as rolename -->
+        FROM
+        customer_user_info s
+        <!--         LEFT JOIN t_sys_role_user ru ON u.id = ru.sys_user_id
+                LEFT JOIN t_sys_role r ON ru.sys_role_id = r.id -->
+        WHERE 1=1
+        <if test="user_name != null">
+            and s.user_name like  concat('%',#{user_name},'%')
+        </if>
+
+        <!--         <if test="rolename != null">
+                    and r.name like  concat('%',#{rolename},'%')
+                </if> -->
+
+    </select>
+    <!-- 以下为示例 -->
+    <!--     <select id="listCount" resultType="Integer">
+            SELECT COUNT(*) FROM t_sys_user;
+        </select>
+        <select id="findUserByUsername" parameterType="String" resultType="User">
+            SELECT * FROM t_sys_user WHERE username=#{username}
+        </select> -->
+
+</mapper>
