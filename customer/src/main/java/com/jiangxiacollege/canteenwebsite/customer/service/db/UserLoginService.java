@@ -14,4 +14,5 @@ public interface UserLoginService extends IService<CustomerUserInfo> {
 
     ResponseBase doLogin(CustomerUserInfo customerUserInfo, HttpServletRequest request);
 
+
 }

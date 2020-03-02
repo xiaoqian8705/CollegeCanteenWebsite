@@ -1,6 +1,5 @@
 package com.jiangxiacollege.canteenwebsite.admin.model;
 
-import java.sql.Timestamp;
 
 /**
  * 与数据库中的物理表映射，增删改一般都用这个模型实现

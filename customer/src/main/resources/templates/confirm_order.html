@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
-<title>确认订单</title>
+<title>订单结算</title>
 <meta name="keywords" content="" />
 <meta name="description" content=" " />
 <meta name="author" content=""/>
@@ -16,8 +16,17 @@
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+   <script th:inline="javascript">
+    $(document).ready(function(){
+     var customer=[[${session.USER}]]
+     if(customer!=null&&customer!=""){
+      $("#d1").hide();
+      $("#d2").text("欢迎您："+customer ).show();
+     }
+    });
+   </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
 
    </div>
    <div class="RightNav">
@@ -36,9 +45,20 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
+    <script>
+     $(document).ready(function () {
+      $("#bt1").click(function(){
+       var keyword =  $("#fkeyword").val();
+       window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+      });
+     })
+    </script>
+    <div class="Search_area" id="dd1">
+     <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+     <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+  <!-- <div class="Search_area">
    <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+   <input type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -56,12 +76,16 @@
 <section class="Psection MT20" id="Cflow">
 <!--如果用户未添加收货地址，则显示如下-->
  <div class="confirm_addr_f">
-  <span class="flow_title">收货地址：</span>
+  <span class="flow_title">收货信息：</span>
+  <!--<form action="add_address">
+   <p><em>收货地址:</em><input name=""  type="text"></p>
+   <p><em>收货人电话:</em><input name=""  type="text"></p>
+  </form>-->
   <!--如果未添加地址，则显示此表单-->
   <form class="add_address" action="#" style="display:none;">
    <p><i>收件人姓名：</i><input type="text" name="" required></p>
    <p>
-   <i>选择所在地：</i> 
+   <i>选择所在地：</i>
    <select name="">
     <option>陕西省</option>
    </select>
@@ -94,13 +118,14 @@
      <li><span><label for="">街道地址：</label></span><p><em>*</em><textarea name="" cols="80" rows="5"></textarea></p></li>
      <li><span><label for="">收件人姓名：</label></span><p><em>*</em><input name="" type="text"></p></li>
      <li><span><label for="">手机号码：</label></span><p><em>*</em><input name="" type="text" pattern="[0-9]{11}" required></p></li>
-     <div class="button-a"><input type="button" value="确 定" class="C-button" /><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><span><input name="" type="button" value="取 消"  class="Cancel-b"/></a></div>
+     <div class="button-a"><input type="button" value="确 定" class="C-button" /><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><span><input name="" type="button" value="取 消"  class="Cancel-b"/></span></a></div>
     <div class="close-botton"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></a></div>
-   </div> 
+
+
    <div id="fade" class="overlay"></div>
     </ul>
-    
-   <!--End add new address-->
+ </div>
+<!--  End add new address-->
    </form>
  </div>
 <!--配送方式及支付，则显示如下-->
@@ -108,16 +133,16 @@
  <div class="pay_delivery">
   <span class="flow_title">配送方式：</span>
   <table>
-   <th width="30%">配送方式</th>
+   <!--<th width="30%">配送方式</th>
    <th width="30%">运费</th>
-   <th width="40%">说明</th>
+   <th width="40%">说明</th>-->
    <tr>
-    <td>送货上门</td>
-    <td>￥0.00</td>
-    <td>配送说明信息...</td>
+    <td>商家配送</td>
+    <td>运费:￥0.00</td>
+<!--    <td>配送说明信息...</td>-->
    </tr>
   </table>
-  <span class="flow_title">在线支付方式：</span>
+  <span class="flow_title">支付方式：</span>
    <form action="#">
     <ul>
     <li><input type="radio" name="pay" id="alipay" value="alipay" /><label for="alipay"><i class="alipay"></i></label></li>
@@ -147,16 +172,16 @@
    </table>
     <div class="Order_M">
      <p><em>订单附言:</em><input name=""  type="text"></p>
-     <p><em>优惠券:</em>
+     <!--<p><em>优惠券:</em>
      <select name="">
       <option>￥10元优惠券</option>
      </select>
-     </p>
+     </p>-->
     </div>
     <div class="Sum_infor">
-    <p class="p1">配送费用：￥0.00+商品费用：￥177.00-优惠券：￥10.00</p>
+<!--    <p class="p1">配送费用：￥0.00+商品费用：￥177.00-优惠券：￥10.00</p>-->
     <p class="p2">合计：<span>￥167.00</span></p>
-    <input type="submit" value="提交订单" / class="p3button">
+    <input type="submit" value="提交订单"  class="p3button">
     </div>
    </div>
    </form>
@@ -177,7 +202,7 @@ $(document).ready(function(){
   <p class="Font14 Lineheight35 FontW">恭喜你！订单提交成功！</p>
   <p class="Font14 Lineheight35 FontW">您的订单编号为：<span class="CorRed">201409205134</span></p>
   <p class="Font14 Lineheight35 FontW">共计金额：<span class="CorRed">￥359</span></p>
-  <p><button type="button" class="Lineheight35"><a href="#" target="_blank">支付宝立即支付</a></button><button type="button" class="Lineheight35"><a href="../user_center">进入用户中心</button></p>
+ <p><button type="button" class="Lineheight35"><a href="#" target="_blank">支付宝立即支付</a></button><button type="button" class="Lineheight35"><a href="../user_center">进入用户中心</a></button></p>
 </section>
 <!--End content-->
 

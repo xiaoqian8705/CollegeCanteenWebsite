@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
 <title>进入店铺</title>
@@ -59,8 +59,17 @@ window.onload = function () {
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+      <script th:inline="javascript">
+          $(document).ready(function(){
+              var customer=[[${session.USER}]]
+              if(customer!=null&&customer!=""){
+                  $("#d1").hide();
+                  $("#d2").text("欢迎您："+customer ).show();
+              }
+          });
+      </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+       <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -77,9 +86,20 @@ window.onload = function () {
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">店铺</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">商品</a>
    </div>
-   <div class="Search_area"> 
+       <script>
+           $(document).ready(function () {
+               $("#bt1").click(function(){
+                   var keyword =  $("#fkeyword").val();
+                   window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+               });
+           })
+       </script>
+       <div class="Search_area" id="dd1">
+           <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+           <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+   <!--<div class="Search_area">
    <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的店铺名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+   <input type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -96,50 +116,40 @@ window.onload = function () {
 <!--Start content-->
 <section class="Shop-index">
  <article>
+
   <div class="shopinfor">
+
    <div class="title">
-    <img src="../upload/wpjnewlogo.jpg" class="shop-ico">
-    <span>含山路外婆家</span>
-    <span>
-     <img src="../images/star-on.png">
-     <img src="../images/star-on.png">
-     <img src="../images/star-on.png">
-     <img src="../images/star-on.png">
-     <img src="../images/star-off.png">
-    </span>
-    <span>4.8</span>
+<!--    <img src="../upload/wpjnewlogo.jpg" class="shop-ico">-->
+    <span th:text="${sellerUserInfo.shopName}"></span>
    </div>
    <div class="imginfor">
     <div class="shopimg">
-     <img src="../upload/cc.jpg" id="showimg">
-      <ul class="smallpic">
-       <li><img src="../upload/cc.jpg" onmouseover="show(this)" onmouseout="hide()"></li>
-      </ul>
+     <img th:src="${sellerUserInfo.photo}" id="showimg">
     </div>
     <div class="shoptext">
-     <p><span>地址：</span>陕西省西安市雁塔区丈八北路***号</p>
-     <p><span>电话：</span>029-88888888</p>
-     <p><span>特色菜品：</span>毛肚、牛丸、滑虾、羊肉、香辣虾...</p>
-     <p><span>优惠活动：</span>暂无信息</p>
-     <p><span>停车位：</span>4个停车位（免费）</p>
-     <p><span>营业时间：</span>09:00~22:00</p>
-     <p><span>WIFI：</span>免费WIFI</p>
-     <p><span>价格：</span>50元</p>
+     <p th:text="'地址：'+${sellerUserInfo.address}"><span></span></p>
+     <p th:text="'电话：'+${sellerUserInfo.phone}"><span></span></p>
+     <p><span></span>优惠活动：暂无信息</p>
+     <p><span></span>营业时间：09:00~22:00</p>
+     <p><span></span>WIFI：免费WIFI</p>
+<!--     <p><span>消息：</span>123123</p>-->
      <div class="Button">
       <a href="#ydwm"><span class="DCbutton">查看菜谱点菜</span></a>
      </div>
      <div class="otherinfor">
-     <a href="#" class="icoa"><img src="../images/collect.png">收藏店铺（123）</a>
+     <a href="#" class="icoa"><img src="../images/collect.png">收藏店铺</a>
      <div class="bshare-custom"><a title="分享" class="bshare-more bshare-more-icon more-style-addthis">分享</a></div>
 	 <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
      </div>
    </div>
   </div>
+
   <div class="shopcontent">
    <div class="title2 cf">
     <ul class="title-list fr cf ">
       <li class="on">菜谱</li>
-      <li>评论</li>
+<!--      <li>评论</li>-->
       <!--<li>商家详情</li>
       <li>店铺留言</li>-->
       <p><b></b></p>
@@ -149,48 +159,15 @@ window.onload = function () {
    <a name="ydwm">
     <!--case1-->
     <div class="menutab show">
-     <ul class="products">
-		<li>
-		 <a href="../detailsp" target="_blank" title="酸辣土豆丝">
-         <img src="../upload/01.jpg" class="foodsimgsize">
+     <ul class="products" >
+		<li th:each="productInfo : ${productList}">
+		 <a th:href="'../detailsp?productId='+${productInfo.id}" target="_blank" th:title="${productInfo.name}">
+         <img th:src="${productInfo.photo}" class="foodsimgsize">
          </a>
           <a href="#" class="item">
 		 <div>
-		  <p>酸辣土豆丝</p>
-		  <p class="AButton">拖至购物车:￥50.00</p>
-		 </div>
-		 </a>
-		</li>
-		<li>
-		 <a href="../detailsp" target="_blank" title="酸辣土豆丝">
-         <img src="../upload/02.jpg" class="foodsimgsize">
-         </a>
-          <a href="#" class="item">
-		 <div>
-		  <p>酸辣土豆丝</p>
-		  <p class="AButton">拖至购物车:￥50.00</p>
-		 </div>
-		 </a>
-		</li>
-		<li>
-		 <a href="../detailsp" target="_blank" title="酸辣土豆丝">
-         <img src="../upload/04.jpg" class="foodsimgsize">
-         </a>
-          <a href="#" class="item">
-		 <div>
-		  <p>酸辣土豆丝</p>
-		  <p class="AButton">拖至购物车:￥50.00</p>
-		 </div>
-		 </a>
-		</li>
-		<li>
-		 <a href="../detailsp" target="_blank" title="酸辣土豆丝">
-         <img src="../upload/03.jpg" class="foodsimgsize">
-         </a>
-          <a href="#" class="item">
-		 <div>
-		  <p>酸辣土豆丝</p>
-		  <p class="AButton">拖至购物车:￥50.00</p>
+		  <p th:text="${productInfo.name}"></p>
+		  <p th:text="${productInfo.price}"></p>
 		 </div>
 		 </a>
 		</li>
@@ -208,7 +185,7 @@ window.onload = function () {
     </div>
     </a>
     <!--case2-->
-   <div class="menutab">
+   <!--<div class="menutab">
      <div class="shopcomment">
       <div class="Spname">
        <a href="#" target="_blank" title="酸辣土豆丝">酸辣土豆丝</a>
@@ -221,7 +198,7 @@ window.onload = function () {
       DeatGhost
       </div>
      </div>
-    </div>
+    </div>-->
     <!--case4-->
    <!-- <div class="menutab">
      <div class="shopdetails">
@@ -287,25 +264,25 @@ window.onload = function () {
     <li>
      <img src="../upload/cc.jpg">
      <p>
-      <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
+      <span class="shopname" title="标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
       <!--     <span class="Discolor">距离：1.2KM</span>-->
-      <span title="完整地址title">地址：西安市雁塔区2000号...</span>
+      <span title="完整地址title">地址：福建江夏学院对面...</span>
      </p>
     </li>
     <li>
      <img src="../upload/cc.jpg">
      <p>
-      <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
+      <span class="shopname" title="标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
       <!--     <span class="Discolor">距离：1.2KM</span>-->
-      <span title="完整地址title">地址：西安市雁塔区2000号...</span>
+      <span title="完整地址title">地址：福建江夏学院对面...</span>
      </p>
     </li>
     <li>
      <img src="../upload/cc.jpg">
      <p>
-     <span class="shopname" title="动态调用完整标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
+     <span class="shopname" title="标题"><a href="../detailsp" target="_blank" title="肯德基">肯德基</a></span>
 <!--     <span class="Discolor">距离：1.2KM</span>-->
-     <span title="完整地址title">地址：西安市雁塔区2000号...</span>
+     <span title="完整地址title">地址：福建江夏学院对面...</span>
      </p>
     </li>
    </ul>

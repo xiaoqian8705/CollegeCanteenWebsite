@@ -1,7 +1,7 @@
 package com.jiangxiacollege.canteenwebsite.customer.common;
 
 
-import lombok.Data;
+;
 
 import java.io.Serializable;
 
@@ -42,4 +42,6 @@ public class ResponseBase implements Serializable {
     public void setPageInfo(PageInfo pageInfo) {
         this.pageInfo = pageInfo;
     }
+
+
 }

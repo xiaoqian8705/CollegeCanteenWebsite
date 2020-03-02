@@ -10,7 +10,6 @@ import com.jiangxiacollege.canteenwebsite.admin.vo.CustomerVO;
 
 @Mapper
 public interface  CustomerMapper  extends BaseMapper<Customer>{
-    //	 Integer listCount();
-//	 User findUserByUsername(String username);
-    List<CustomerVO> selectCustomerListPage(Pagination page ,CustomerVO CustomerVO);
+
+    List<CustomerVO> selectCustomerListPage(Pagination page ,CustomerVO customerVO);
 }

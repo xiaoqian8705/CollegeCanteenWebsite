@@ -1,12 +1,7 @@
 @charset "utf-8";
-/*
-Template Name: xingfudadao TEMPLATE
-Template URI: http://www.xingfudadao.com/
-Description: The default xingfudadao template.
-Version: 1.0
-Author: DeathGhost
-Author URI: http://www.xianhuachneg.com/
-*/
+
+
+
 /* CSS PUBLIK*/
 body{margin:0 auto;padding:0;color:#333333;font-family:"Microsoft YaHei";font-size:12px;overflow-x:hidden;position:relative;}
 a,input{ text-decoration:none;color:#333333;outline: none;border:none;}
@@ -45,7 +40,7 @@ code::selection {background:#dddddd;}
 .input_tel{border:1px #dddddd solid;padding:8px;width:120px;}
 .input_mark{border:1px #dddddd solid;width:500px;padding:8px;}
 .select_ssq{padding:5px;outline:none;}
-.Submit{padding:5px 8px; border:1px #dddddd solid;background:#cccccc;background-image: -moz-linear-gradient(top, #fff, #dddddd); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #dddddd)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/margin-right:8px;}
+.Submit{padding:5px 8px; border:1px #dddddd solid;background:#cccccc;background-image: -moz-linear-gradient(top, #fff, #dddddd); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #dddddd)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/margin-right:8px;}
 
 .Number{border:1px #cccccc solid;padding:8px;}
 .Datetime{border:1px #cccccc solid;padding:5px;}
@@ -99,7 +94,7 @@ code::selection {background:#dddddd;}
 .Cfn .N-right .Newslist li{border-bottom:1px #dddddd dotted;height:32px;line-height:32px; overflow:hidden;}
 .Cfn .N-right .Newslist li i{border-top:5px solid #FFFFFF;border-left:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-right:5px;}
 .Cfn .N-right .Orderlist{height: auto;padding:10px 5px 0px 5px; color:#00a73e;display:block;}
-.Cfn .N-right .Orderlist li{height:84px;border-bottom:1px #dedede dotted;}
+.Cfn .N-right .Orderlist li{height:108px;border-bottom:1px #dedede dotted;}
 .Cfn .N-right .Orderlist li p{line-height:25px;}
 .Cfn .N-right .Orderlist li p .State01{background:#e7f0ef;padding:3px 10px;border-radius:3px;font-style:normal;}
 .Cfn .N-right .Orderlist li p .State02{background:#77eca5;padding:3px 10px;border-radius:3px;font-style:normal;color:#fff;}
@@ -137,8 +132,8 @@ code::selection {background:#dddddd;}
 .Sfainfor .Sflist #Indexcontent ul .SCcontent figure{width:284px;height:244px; float:left;overflow:hidden;border:1px #d1cdce solid;padding:1px;margin:0 7px 8px 5px;}
 .Sfainfor .Sflist #Indexcontent ul .SCcontent figure img{width:284px;height:200px;}
 .Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption{background:#ececec;width:284px;height:40px;line-height:40px;padding:0 8px;}
-.Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption .title{font-size:13px;color:#000;width:142px;text-align:left;display: inline-block;border-right:1px #dddddd solid;}
-.Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption .price{font-size:18px;color:#F00;font-weight:bold;width:141px;display:display:inline-block;}
+.Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption .title{font-size:13px;color:#000;width:177px;text-align:left;display: inline-block;border-right:1px #dddddd solid;}
+.Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption .price{font-size:18px;color:#F00;font-weight:bold;width:141px;display:inline-block;}
 .Sfainfor .Sflist #Indexcontent ul .SCcontent figure figcaption .price i{font-size:12px;font-style:normal;}
 /*订餐*/
 .Sfainfor .Sflist #Indexcontent ul .DCcontent{width:auto;height:auto;clear:both;margin-top:10px;}
@@ -151,7 +146,7 @@ code::selection {background:#dddddd;}
 .Sfainfor .Sflist #Indexcontent ul .DCcontent figure img{width:284px;height:200px;}
 .Sfainfor .Sflist #Indexcontent ul .DCcontent figure figcaption{background:#f8f8f8;width:284px;height:40px;line-height:40px;padding:0 8px;border-bottom:1px #c4c4c4 solid;}
 .Sfainfor .Sflist #Indexcontent ul .DCcontent figure figcaption .title{font-size:13px;color:#000;font-weight:bold;width:142px;text-align:left;display: inline-block;border-right:1px #dddddd solid;}
-.Sfainfor .Sflist #Indexcontent ul .DCcontent figure figcaption .price{font-size:13px;color:#F00;width:141px;text-align:right;display:display:inline-block;}
+.Sfainfor .Sflist #Indexcontent ul .DCcontent figure figcaption .price{font-size:13px;color:#F00;width:141px;text-align:right;display:inline-block;}
 .Sfainfor .Sflist #Indexcontent ul .DCcontent figure figcaption .price i{font-size:13px;font-style:normal;background:#F00;padding:2px 5px;border-radius:3px;color:#0F0;}
 
 .Sfainfor .Sflist #Indexcontent ul .bestshop{width:auto;height:auto;clear:both;margin-top:10px;}
@@ -178,7 +173,7 @@ code::selection {background:#dddddd;}
 .fslist_navtree .select a:hover{background-color:#f3edc2}
 .fslist_navtree .select .selected a{color:#fff;background-color:#f60}
 .fslist_navtree .select-no{color:#999}
-.fslist_navtree .select .select-result a{padding-right:20px;background: url(../images/close.gif) right 9px no-repeat #f60;}
+.fslist_navtree .select .select-result a{padding-right:20px;background: url(../images/collect.png) right 9px no-repeat #f60;}
 .fslist_navtree .select .select-result a:hover{background-position:right -15px}
 /*search productpage*/
 .Searchlist{width:900px;height:auto;float:left;}
@@ -218,8 +213,8 @@ code::selection {background:#dddddd;}
 .Fslmenu a span .s-down{margin:0 5px;background:url(../images/s-down.png) no-repeat;display:inline-block;width:7px;height:8px;}
 .Fsl{width:1200px;margin:10px auto;overflow:hidden;padding:0;font-size:13px;}
 .Fsl ul{width:1200px;float:left;overflow:hidden;}
-.Fsl li{width:388px;height:403px;border:1px #dddddd solid;float:left;margin:0 8px 10px 0;}
-.Fsl li img{margin:5px;width:388px;height:240px;}
+.Fsl li{width:388px;height:335px;border:1px #dddddd solid;display:inline-block;margin:0 7px 10px 0;}
+.Fsl li img{margin:0;width:388px;height:240px;}
 .Fsl li hgroup{margin:0 5px;}
 .Fsl li hgroup h3{font-size:16px;font-weight:bold;}
 .Fsl li hgroup h4{font-size:13px;font-weight:normal;}
@@ -227,7 +222,7 @@ code::selection {background:#dddddd;}
 .Fsl li p .Score-l{width:268px;height:auto; display:inline-block;}
 .Fsl li p img{width:15px;height:15px; vertical-align:central;margin:0;padding:0;}
 .Fsl li p .Score-v{font-size:24px;font-weight:bold;color:#f95f1f;display:inline-block;}
-.Fsl li p .DSBUTTON{background:#f76220;font-weight:bold;font-size:16px;color:#fff;display:inline-block;width:156px;height:40px;position: relative;top:-10px;right:-6px;text-align:center;line-height:40px;}
+.Fsl li p .DSBUTTON{background:#f76220;font-weight:bold;font-size:16px;color:#fff;display:inline-block;width:156px;height:40px;position: relative;top:-22px;right:-226px;text-align:center;line-height:40px;}
 /*.Fsl aside{width:300px;height:auto;overflow:hidden;float:right;}
 .Fsl aside .title{height:45px;line-height:45px;font-weight:bold;text-indent:1em;border:1px #dddddd solid;font-size:15px;}
 .Fsl aside .C-list{border:1px #dddddd solid; border-top:none;padding:5px;}
@@ -237,7 +232,7 @@ code::selection {background:#dddddd;}
 .Shop-index{width:1200px;height:auto;margin:20px auto 0; overflow:hidden; clear:both;}
 .Shop-index article{width:900px;height:auto; float:left;}
 .Shop-index article .shopinfor{width:100%;height:auto;border:1px #e7e5e6 solid;overflow:hidden;}
-.Shop-index article .shopinfor .title{height:90px;line-height:90px;border-bottom:1px #e7e5e6 solid;font-size:24px;font-weight:bold;color:#00ac40;box-shadow:5px 5px 5px #f1f1f1;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
+.Shop-index article .shopinfor .title{height:90px;line-height:90px;border-bottom:1px #e7e5e6 solid;font-size:40px;text-align:center;font-weight:bold;color:#00ac40;box-shadow:5px 5px 5px #f1f1f1;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
 .Shop-index article .shopinfor .title .shop-ico{width:65px;height:65px;border-radius:50%;border:2px #dddddd solid; vertical-align:middle;margin:0 10px 0 50px;}
 .Shop-index article .shopinfor .imginfor{width: auto;height:auto;padding:5px;margin-top:10px;}
 .Shop-index article .shopinfor .imginfor .shopimg{width:440px;float:left;}
@@ -251,7 +246,7 @@ code::selection {background:#dddddd;}
 .Shop-index article .shopinfor .imginfor .shoptext .Button{margin-top:30px;font-weight:bold;}
 .Shop-index article .shopinfor .imginfor .shoptext .Button .DCbutton{padding:10px 50px;background:#f7753b;border-radius:5px;border:1px #e56329 solid;color:#FFF;margin-right:10px;}
 .Shop-index article .shopinfor .imginfor .shoptext .Button .DCbutton:hover{background:#fb5105;border:1px #d34100 solid;}
-.Shop-index article .shopinfor .imginfor .shoptext .otherinfor{float:left; display:inline-block;width:100%;overflow:hidden;margin-top:20px;}
+.Shop-index article .shopinfor .imginfor .shoptext .otherinfor{float:left; display:inline-block;width:100%;overflow:hidden;margin-top:35px;}
 .Shop-index article .shopinfor .imginfor .shoptext .otherinfor .icoa{font-weight:normal; float:left;}
 .Shop-index article .shopinfor .imginfor .shoptext .otherinfor .icoa img{vertical-align: sub;margin:0 8px;}
 /*shop index listmenu content*/
@@ -285,10 +280,10 @@ code::selection {background:#dddddd;}
 .products li {float:left;}
 .products .AButton{border-top:1px #cccccc solid;}
 .item {display:block;}
-.item img {width:210px;148px;}
+.item img {width:210px; }
 .item p {font-weight:bold;text-align:center;height:35px;line-height:35px;}
 .cart {border:1px #dddddd solid;right:0;top:0;height:auto; margin:5px 0; background:#fff; overflow:hidden;}
-.cart .Ctitle{border-bottom:1px #dddddd solid;line-height:40px;  text-indent:1em;;color:#fff;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
+.cart .Ctitle{border-bottom:1px #dddddd solid;line-height:40px;  text-indent:1em;;color:#fff;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
 .Ptc{height:35px;line-height:35px;padding:0;margin:5px 0;}
 .Ptc .total{padding:5px 8px;font-weight:bold;height:25px;line-height:25px;float:right;margin:0 8px;background:#f1f1f1;color:#999;border-radius:2px;}
 .Ptc .Cbutton a{padding:5px 8px;margin:0 8px;background:#f1f1f1; float:right;height:25px;line-height:25px;font-weight:bold;color:#999;border-radius:2px;}
@@ -372,7 +367,7 @@ code::selection {background:#dddddd;}
 .A-Message p i{font-style:normal;font-size:14px;font-weight:bold;width:120px; text-align:right; display: inline-block;}
 .A-Message input{border:1px #dddddd solid;padding:8px;}
 .A-Message textarea{width:500px;height:200px;padding:5px;}
-.A-Message .Abutt{padding:8px 20px;font-weight:bold;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/ margin-left:120px;}
+.A-Message .Abutt{padding:8px 20px;font-weight:bold;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/ margin-left:120px;}
 
 
 
@@ -418,10 +413,10 @@ code::selection {background:#dddddd;}
 .slp .food-hd .foodtext .BuyNo{line-height:60px;overflow:hidden;}
 .slp .food-hd .foodtext .BuyNo input{border:1px #dddddd solid;padding:5px;width:60px;margin:0 15px;}
 .slp .food-hd .foodtext .BuyNo .Buybutton{margin:10px 0;}
-.slp .food-hd .foodtext .BuyNo .Buybutton .BuyB{height:45px;width:175px;line-height:20px;text-align:center;margin-right:10px;font-size:15px;border:1px #eb4e00 solid;border-radius:5px;display:inline-block;color:#fff;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fe8617, #f55300); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe8617), color-stop(1, #f55300)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
-.slp .food-hd .foodtext .BuyNo .Buybutton .BuyB:hover{background-image: -moz-linear-gradient(top, #f55300, #fe8617); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f55300), color-stop(1, #fe8617)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
-.slp .food-hd .foodtext .BuyNo .Buybutton .Backhome{height:43px;width:175px;line-height:43px;text-align:center;font-size:15px;border:1px #f2bc18 solid;border-radius:5px;display:inline-block;color:#f26500;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fff8b4, #ffe983); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff8b4), color-stop(1, #ffe983)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
-.slp .food-hd .foodtext .BuyNo .Buybutton .Backhome:hover{background-image: -moz-linear-gradient(top, #ffe983, #fff8b4); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffe983), color-stop(1, #fff8b4)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .BuyB{height:45px;width:175px;line-height:20px;text-align:center;margin-right:10px;font-size:15px;border:1px #eb4e00 solid;border-radius:5px;display:inline-block;color:#fff;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fe8617, #f55300); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe8617), color-stop(1, #f55300)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .BuyB:hover{background-image: -moz-linear-gradient(top, #f55300, #fe8617); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f55300), color-stop(1, #fe8617)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .Backhome{height:43px;width:175px;line-height:43px;text-align:center;font-size:15px;border:1px #f2bc18 solid;border-radius:5px;display:inline-block;color:#f26500;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fff8b4, #ffe983); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff8b4), color-stop(1, #ffe983)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .Backhome:hover{background-image: -moz-linear-gradient(top, #ffe983, #fff8b4); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffe983), color-stop(1, #fff8b4)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300'); /* IE*/}
 /*.slp .food-hd .viewhistory{width:184px;height:auto;float:left;border-left:1px #dddddd dotted;}
 .slp .food-hd .viewhistory .VHtitle{display:block;width:184px;text-align:center;color:#cccccc;border-bottom:1px #dddddd dotted;}
 .slp .food-hd .viewhistory .Fsulist{overflow:hidden;width:185px;height:auto;}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
 <title>文章详情页</title>
@@ -17,8 +17,17 @@
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+   <script th:inline="javascript">
+    $(document).ready(function(){
+     var customer=[[${session.USER}]]
+     if(customer!=null&&customer!=""){
+      $("#d1").hide();
+      $("#d2").text("欢迎您："+customer ).show();
+     }
+    });
+   </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -36,9 +45,20 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
+    <script>
+     $(document).ready(function () {
+      $("#bt1").click(function(){
+       var keyword =  $("#fkeyword").val();
+       window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+      });
+     })
+    </script>
+    <div class="Search_area" id="dd1">
+     <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+     <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+   <!--<div class="Search_area">
    <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+   <input type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>

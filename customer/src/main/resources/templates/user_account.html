@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
-<title>用户中心</title>
+<title>用户中心-账户管理</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="author" content=""/>
@@ -10,14 +10,23 @@
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/jqpublic.js"></script>
-
+ <script type="text/javascript" src="../js/update.js"></script>
 </head>
 <body>
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+   <script th:inline="javascript">
+    $(document).ready(function(){
+     var customer=[[${session.USER}]]
+     if(customer!=null&&customer!=""){
+      $("#d1").hide();
+      $("#d2").text("欢迎您："+customer ).show();
+     }
+    });
+   </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -34,9 +43,20 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
+    <script>
+     $(document).ready(function () {
+      $("#bt1").click(function(){
+       var keyword =  $("#fkeyword").val();
+       window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+      });
+     })
+    </script>
+    <div class="Search_area" id="dd1">
+     <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+     <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+   <!--<div class="Search_area">
    <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+   <input type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -57,41 +77,56 @@
    <li><i></i><a href="../user_center">用户中心首页</a></li>
    <li><i></i><a href="user_orderlist">我的订单</a></li>
    <li><i></i><a href="../user_address">收货地址</a></li>
-   <li><i></i><a href="../user_message">我的留言</a></li>
-   <li><i></i><a href="../user_coupon">我的优惠券</a></li>
+<!--   <li><i></i><a href="../user_message">我的留言</a></li>-->
+<!--   <li><i></i><a href="../user_coupon">我的优惠券</a></li>-->
    <li><i></i><a href="../user_favorites">我的收藏</a></li>
    <li><i></i><a href="../user_account">账户管理</a></li>
-   <li><i></i><a href="#">安全退出</a></li>
+   <li><a href="#">安全退出</a></li>
+   <li><a href="#"></a></li>
+   <li><a href="#"></a></li>
+   <li><a href="#"></a></li>
   </ul>
  </nav>
  <article class="U-article Overflow">
   <!--user Account-->
   <section class="AccManage Overflow">
    <span class="AMTitle Block Font14 FontW Lineheight35">账户管理</span>
-   <p>登陆邮箱：232***413@qq.com ( <a href="#" target="_blank">更换手机号码</a> )</p>
+   <!--<p>登陆邮箱：232***413@qq.com ( <a href="#" target="_blank">更换手机号码</a> )</p>
    <p>手机号码：183****5673 ( <a href="#" target="_blank">更换手机号码</a> ) ( <a href="#" target="_blank">解绑手机</a> )</p>
-   <p>上次登陆：2014年09月22日 11:40:36( *如非本人登陆，请立即<a href="#" target="_blank">修改您的密码</a>！ )</p>
+   <p>上次登陆：2014年09月22日 11:40:36( *如非本人登陆，请立即<a href="#" target="_blank">修改您的密码</a>！ )</p>-->
    <form>
     <table>
-    <tr>
+    <!--<tr>
     <td width="30%" align="right">*修改头像：</td>
     <td><input name="" type="file"><button>确定</button></td>
+    </tr>-->
+    <tr>
+    <td width="30%" align="right">用户名：</td>
+    <td><input type="text" name="" th:value="${customerUserInfo.userName}" readonly ></td>
     </tr>
     <tr>
-    <td width="30%" align="right">*昵称：</td>
-    <td><input type="text" name="" value="DeathGhost"></td>
+    <td width="30%" align="right">密码：</td>
+    <td><input type="password" name="" th:value="${customerUserInfo.password}" id="password"></td>
     </tr>
     <tr>
-    <td width="30%" align="right">*邮箱：</td>
-    <td><input type="email" name="" value="232650413@qq.com"></td>
+    <td width="30%" align="right">手机：</td>
+    <td><input type="text" name="" th:value="${customerUserInfo.phone}" id="phone" ></td>
     </tr>
-    <tr>
-    <td width="30%" align="right">*手机：</td>
-    <td><input type="tel" name="" value="18309275673"></td>
-    </tr>
+     <tr>
+      <td width="30%" align="right">性别：</td>
+      <td><input type="text" name="" th:value="${customerUserInfo.sex}==0?'女':'男'" id="sex"></td>
+     </tr>
+     <tr>
+      <td width="30%" align="right">学校：</td>
+      <td><input type="text" name="" th:value="${customerUserInfo.school}" id="school"></td>
+     </tr>
+     <tr>
+      <td width="30%" align="right">年级：</td>
+      <td><input type="text" name="" th:value="${customerUserInfo.grade}" id="grade"></td>
+     </tr>
     <tr>
     <td></td>
-    <td><input name="" type="submit" value="保 存"></td>
+    <td><input name="" type="button" value="保 存" onclick="updateCustomer()"></td>
     </tr>
     </table>
    </form>

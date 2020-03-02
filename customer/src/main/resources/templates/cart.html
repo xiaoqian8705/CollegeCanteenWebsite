@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
 <title>我的购物车</title>
@@ -17,8 +17,17 @@
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+      <script th:inline="javascript">
+          $(document).ready(function(){
+              var customer=[[${session.USER}]]
+              if(customer!=null&&customer!=""){
+                  $("#d1").hide();
+                  $("#d2").text("欢迎您："+customer ).show();
+              }
+          });
+      </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+       <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -35,9 +44,17 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+       <script>
+           $(document).ready(function () {
+               $("#bt1").click(function(){
+                   var keyword =  $("#fkeyword").val();
+                   window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+               });
+           })
+       </script>
+       <div class="Search_area" id="dd1">
+           <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+           <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -59,30 +76,32 @@
       <td class="tb1_td1"><input id="Checkbox1" type="checkbox"  class="allselect"/></td>
       <td class="tb1_td1">全选</td>
       <td class="tb1_td3">商品</td>
-      <td class="tb1_td4">原价</td>
+     <td class="tb1_td4">价格</td>
       <td class="tb1_td5">数量</td>  
-      <td class="tb1_td6">单价</td>
+      <td class="tb1_td6">小计</td>
+
       <td class="tb1_td7">操作</td>
     </tr>
   </table>
-  <table cellpadding="0" cellspacing="0" class="gwc_tb2" id="table1">
+  <table cellpadding="0" cellspacing="0" class="gwc_tb2" id="table1" th:each="cart:${cartList}">
     <tr>
-     <td colspan="7" class="shopname Font14 FontW">店铺：好味来快餐店</td>
+     <td colspan="7" class="shopname Font14 FontW" th:text="${cart.shopName}"></td>
     </tr>
     <tr>
       <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-1" /></td>
-      <td class="tb2_td2"><a href="../detailsp" target="_blank"><img src="../upload/01.jpg"/></a></td>
-      <td class="tb2_td3"><a href="../detailsp" target="_blank">酸辣土豆丝</a></td>
-      <td class="tb1_td4"><s>￥59.00</s></td>
+      <td class="tb2_td2"><a href="../detailsp" target="_blank"><img th:src="${cart.photo}"/></a></td>
+      <td class="tb2_td3"><a href="../detailsp" target="_blank" th:text="${cart.name}"></a></td>
+        <td class="tb1_td4" th:text="${cart.price}"><s></s></td>
       <td class="tb1_td5"><input id="min1" name=""  style="width:30px; height:30px;border:1px solid #ccc;" type="button" value="-" />
-        <input id="text_box1" name="" type="text" value="1" style=" width:40px;height:28px; text-align:center; border:1px solid #ccc;" />
-        <input id="add1" name="" style="width:30px; height:30px;border:1px solid #ccc;" type="button" value="+" />
-      </td>
+        <input id="text_box1" name="" type="text" th:value="${cart.number}" style=" width:40px;height:28px; text-align:center; border:1px solid #ccc;" />
+        <input id="add1" name="" style="width:30px; height:30px;border:1px solid #ccc;" type="button" value="+" /></td>
       <td class="tb1_td6"><label id="total1" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
+
       <td class="tb1_td7"><a href="#" id="delcart1">删除</a></td>
     </tr>
   </table>
-  <table cellpadding="0" cellspacing="0" class="gwc_tb2" id="table2">
+
+  <!--<table cellpadding="0" cellspacing="0" class="gwc_tb2" id="table2">
     <tr>
      <td colspan="7" class="shopname Font14 FontW">店铺：肯德基</td>
     </tr>
@@ -90,7 +109,7 @@
       <td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-2" /></td>
       <td class="tb2_td2"><a href="../detailsp" target="_blank"><img src="../upload/02.jpg"/></a></td>
       <td class="tb2_td3"><a href="../detailsp" target="_blank">酸辣土豆丝</a></td>
-      <td class="tb1_td4"><s>￥59.00</s></td>
+&lt;!&ndash;      <td class="tb1_td4"><s>￥59.00</s></td>&ndash;&gt;
       <td class="tb1_td5"><input id="min2" name=""  style=" width:30px; height:30px;border:1px solid #ccc;" type="button" value="-" />
         <input id="text_box2" name="" type="text" value="1" style=" width:40px;height:28px; text-align:center; border:1px solid #ccc;" />
         <input id="add2" name="" style=" width:30px; height:30px;border:1px solid #ccc;" type="button" value="+" />
@@ -98,7 +117,7 @@
       <td class="tb1_td6"><label id="total2" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
       <td class="tb1_td7"><a href="#" id="delcart2">删除</a></td>
     </tr>
-  </table>
+  </table>-->
   <table cellpadding="0" cellspacing="0" class="gwc_tb3">
     <tr>
       <td class="tb1_td1"><input id="checkAll" class="allselect" type="checkbox" /></td>
@@ -111,7 +130,7 @@
       <td class="tb3_td2">已选商品
         <label id="shuliang" style="color:#ff5500;font-size:14px; font-weight:bold;">0</label>
         件</td>
-      <td class="tb3_td3">合计(不含运费):<span>￥</span><span style=" color:#ff5500;">
+      <td class="tb3_td3">合计:<span>￥</span><span style=" color:#ff5500;">
         <label id="zong1" style="color:#ff5500;font-size:14px; font-weight:bold;">0.00</label>
         </span></td>
       <td class="tb3_td4"><span id="jz1">结算</span><a href="../confirm_order" style=" display:none;" class="jz2" id="jz2">结算</a></td>

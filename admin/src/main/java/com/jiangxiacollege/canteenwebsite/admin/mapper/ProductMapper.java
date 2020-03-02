@@ -10,5 +10,5 @@ import java.util.List;
 
 @Mapper
 public interface ProductMapper extends BaseMapper<Product> {
-    List<ProductVO> selectProductListPage(Pagination page , ProductVO ProductVO);
+    List<ProductVO> selectProductListPage(Pagination page , ProductVO productVO);
 }

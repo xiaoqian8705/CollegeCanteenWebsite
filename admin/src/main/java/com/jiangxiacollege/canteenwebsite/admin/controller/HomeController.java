@@ -8,12 +8,17 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.jiangxiacollege.canteenwebsite.admin.model.ResponseBase;
+import com.jiangxiacollege.canteenwebsite.admin.model.SellerUserInfo;
+import com.jiangxiacollege.canteenwebsite.admin.service.SellerUserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.jiangxiacollege.canteenwebsite.admin.model.User;
 import com.jiangxiacollege.canteenwebsite.admin.service.PermissionService;
@@ -30,6 +35,9 @@ public class HomeController {
 	
 	@Autowired
 	private PermissionService permissionService;// 注入业务层的service
+
+	@Autowired
+	private SellerUserInfoService sellerUserInfoService;
 	
 	// 未加入@ResponseBody用来返回数据给页面
 	@RequestMapping("/index")
@@ -92,5 +100,15 @@ public class HomeController {
         }    
         return null;    
     }
+
+	@RequestMapping("/doRegister")
+	@ResponseBody
+	public ResponseBase register(SellerUserInfo sellerUserInfo) {
+		return sellerUserInfoService.addUser(sellerUserInfo);
+	}
+	@RequestMapping("/register")
+	public String register() {
+		return "admin/register";
+	}
 
 }

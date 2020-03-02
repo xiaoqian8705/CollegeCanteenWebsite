@@ -1,4 +1,6 @@
 package com.jiangxiacollege.canteenwebsite.customer.table;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import java.io.Serializable;
@@ -7,7 +9,7 @@ import java.io.Serializable;
 @TableName("customer_user_info")
 public class CustomerUserInfo implements Serializable {
 
-
+   // @TableId(value = "id",type = IdType.AUTO)
     private int id; //id
 
     private String userName; //用户名
@@ -26,9 +28,7 @@ public class CustomerUserInfo implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getUserName() {
         return userName;

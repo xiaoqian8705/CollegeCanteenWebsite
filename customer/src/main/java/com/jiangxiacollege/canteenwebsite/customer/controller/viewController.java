@@ -18,10 +18,10 @@ public class viewController {
         return "article_read";
     }
 
-    @RequestMapping( "/cart")
-    public String cart(){
-        return "cart";
-    }
+//    @RequestMapping( "/cart")
+//    public String cart(){
+//        return "cart";
+//    }
 
     @RequestMapping( "/category")
     public String category(){
@@ -32,16 +32,16 @@ public class viewController {
     public String confirmOrder(){
         return "confirm_order";
     }
-
+/*
     @RequestMapping( "/detailsp")
     public String detailsp(){
         return "detailsp";
-    }
+    }*/
 
-    @RequestMapping( "/list")
+    /*@RequestMapping( "/list")
     public String list(){
         return "list";
-    }
+    }*/
 
     @RequestMapping( "/reserve")
     public String reserve(){
@@ -63,30 +63,30 @@ public class viewController {
         return "search_s";
     }
 
-    @RequestMapping( "/shop")
+    /*@RequestMapping( "/shop")
     public String shop(){
         return "shop";
     }
-
-    @RequestMapping( "/user_account")
+*/
+   /* @RequestMapping( "/user_account")
     public String userAccount(){
         return "user_account";
-    }
+    }*/
 
-    @RequestMapping( "/user_address")
+  /*  @RequestMapping( "/user_address")
     public String userAddress(){
         return "user_address";
     }
-
+*/
     @RequestMapping( "/user_center")
     public String userCenter(){
         return "user_center";
     }
 
-    @RequestMapping( "/user_orderlist")
+   /* @RequestMapping( "/user_orderlist")
     public String userOderlist(){
         return "user_orderlist";
-    }
+    }*/
 
     @RequestMapping( "/user_coupon")
     public String userCoupon(){
@@ -103,9 +103,9 @@ public class viewController {
         return "user_message";
     }
 
-    @RequestMapping( "/user_order")
-    public String userOrder(){
-        return "user_order";
-    }
+//    @RequestMapping( "/user_order")
+//    public String userOrder(){
+//        return "user_order";
+//    }
 
 }
