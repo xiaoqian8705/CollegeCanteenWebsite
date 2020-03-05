@@ -23,6 +23,9 @@
         <if test="seller_id != null">
             and p.seller_id like  concat('%',#{seller_id},'%')
         </if>
+        <if test="userId != null and userId != '' ">
+            and p.seller_id = #{userId}
+        </if>
 
         <!--         <if test="rolename != null">
                     and r.name like  concat('%',#{rolename},'%')

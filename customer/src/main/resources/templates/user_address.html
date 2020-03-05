@@ -245,21 +245,21 @@
   $.ajax({
   contentType: "application/json",
     dataType: "json",
-   type: "post",
-   data:JSON.stringify({
+   type: "get",
+   data:{
     id:id, //第一个id为参数名，第二个为参数值
 
-   }),
-   url: "/updateAddress",//后台处理地址
+   },
+   url: "/getAddressById",//后台处理地址
    success: function (data) {
     //console.log(data);
     if(data.code==0){
      //设置数据
-     $("#id").val(data.obj.id);//修改数据必须有主键值
+     $("#id").val(data.data.id);//修改数据必须有主键值
 
-     $("#name").val(data.obj.name);
-     $("#address").val(data.obj.address);
-     $("#phone").val(data.obj.phone);
+     $("#name").val(data.data.name);
+     $("#address").val(data.data.address);
+     $("#phone").val(data.data.phone);
      $("#modaltitle").text("修改");
      $("#modal").modal("show");
     }else{
@@ -357,12 +357,10 @@
    }
    //异步删除数据
    $.ajax({
-    type: "post",
-    contentType: "application/json",
-    dataType: "json",
-    data:  JSON.stringify({
+    type: "get",
+    data: {
      ids:ids,//第一个ids为参数名，第二个为参数值
-    }),
+    },
     url: "/deleteAddress",//后台处理地址
     success: function (data) {
      if(data.code==0){

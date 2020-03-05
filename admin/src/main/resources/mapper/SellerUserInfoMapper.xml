@@ -24,7 +24,9 @@
         <if test="user_name != null">
             and u.user_name like  concat('%',#{user_name},'%')
         </if>
-
+        <if test="userId != null and userId != '' ">
+            and u.id = #{userId}
+        </if>
 
     </select>
 

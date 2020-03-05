@@ -27,6 +27,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
                 BigDecimal totalPrice = cartVo.getPrice().multiply(new BigDecimal(cartVo.getNumber()));
                 cartVo.setTotalPrice(totalPrice);
             }*/
+
             responseBase.setData(list);
 
         }catch (Exception e){

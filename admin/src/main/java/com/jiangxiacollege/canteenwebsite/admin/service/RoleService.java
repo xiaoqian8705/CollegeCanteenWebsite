@@ -126,5 +126,13 @@ public class RoleService {
 		return result;
 	}
 
+	public UserRole getOne(String userId){
+		UserRole userRole = new UserRole();
+		userRole.setSys_user_id(userId);
+		return userRoleMapper.selectOne(userRole);
+	}
+
+
+
 }
 

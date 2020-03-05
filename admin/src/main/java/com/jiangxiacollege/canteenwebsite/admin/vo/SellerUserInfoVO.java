@@ -17,4 +17,6 @@ public class SellerUserInfoVO implements Serializable {
     private String photo;
     private int status;
 
+    private String userId;
+
 }

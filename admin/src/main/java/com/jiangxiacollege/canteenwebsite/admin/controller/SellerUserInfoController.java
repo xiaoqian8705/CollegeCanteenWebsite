@@ -1,8 +1,9 @@
 package com.jiangxiacollege.canteenwebsite.admin.controller;
-
+import com.jiangxiacollege.canteenwebsite.admin.model.User;
 
 import com.jiangxiacollege.canteenwebsite.admin.model.SellerUserInfo;
 
+import com.jiangxiacollege.canteenwebsite.admin.model.User;
 import com.jiangxiacollege.canteenwebsite.admin.service.SellerUserInfoService;
 import com.jiangxiacollege.canteenwebsite.admin.util.SnowflakeIdWorker;
 import com.jiangxiacollege.canteenwebsite.admin.vo.DataTableResult;
@@ -53,6 +54,13 @@ public class SellerUserInfoController {
     @ResponseBody
     public DataTableResult list(HttpServletRequest request, SellerUserInfoVO sellerUserInfoVO) {
         // DataTableResult返回给datatables控件的数据格式
+        int roleId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("roleId")));
+        String userId = ((User)request.getSession().getAttribute("user")).getId();
+        if(roleId ==1){
+            sellerUserInfoVO.setUserId("");
+        }else if(roleId ==3){
+            sellerUserInfoVO.setUserId(userId);
+        }
         DataTableResult result = new DataTableResult();
         // 获取分页参数
         int start = Integer.parseInt(request.getParameter("start"));

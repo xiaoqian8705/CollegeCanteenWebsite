@@ -78,14 +78,14 @@ public class AddressController {
     }
 
 
-    /*@RequestMapping("/updateAddress")
+    @RequestMapping("/getAddressById")
     @ResponseBody
-    public ResponseBase updateAddress(@RequestBody Address address ){
-        return  addressService.updateAddress( address);
-    }*/
+    public ResponseBase getAddressById(String id) {
+        ResponseBase responseBass = addressService.getAddressById(id);
+        return responseBass;
 
 
-
+    }
 
 
 

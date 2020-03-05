@@ -98,6 +98,28 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
             result.setData(page.getRecords());
             return result;
     }
+    @Override
+    public ResponseBase getAddressById(String id) {
+        ResponseBase responseBase = new ResponseBase();
+        try {
+            LambdaQueryWrapper<Address> lqw = new  QueryWrapper().lambda();
+            lqw.eq(Address::getId,id);
+            Address post = this.getOne(lqw);
+            responseBase.setCode(0);
+            responseBase.setData(post);
+        }catch (Exception e){
+            log.error(e.getMessage());
+            responseBase.setCode(1);
+            responseBase.setMessage("系统错误");
+        }
+        return responseBase;
+    }
+
+
+
+
+
+
     }
 
 
