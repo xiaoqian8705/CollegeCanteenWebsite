@@ -3,7 +3,11 @@ package com.jiangxiacollege.canteenwebsite.customer.controller;
 import com.jiangxiacollege.canteenwebsite.customer.common.DataTableResult;
 import com.jiangxiacollege.canteenwebsite.customer.common.ResponseBase;
 import com.jiangxiacollege.canteenwebsite.customer.service.db.AddressService;
+import com.jiangxiacollege.canteenwebsite.customer.service.db.ProductService;
 import com.jiangxiacollege.canteenwebsite.customer.table.Address;
+import com.jiangxiacollege.canteenwebsite.customer.table.Product;
+import com.jiangxiacollege.canteenwebsite.customer.utils.JsonUtils;
+import com.jiangxiacollege.canteenwebsite.customer.vo.OrderVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -15,7 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -23,6 +30,7 @@ public class AddressController {
 
     @Resource
     private AddressService addressService;
+
 
     @RequestMapping("/user_address")
     public  String addressList(Model model, HttpServletRequest request){
@@ -32,6 +40,7 @@ public class AddressController {
         model.addAttribute("addressInfo", addressList);
         return "/user_address";
     }
+
 
     @RequestMapping("/addressList")
     @ResponseBody

@@ -17,6 +17,7 @@ public class OrderDetailVo implements Serializable{
     private String address;
     private  String shopName;
     private  BigDecimal totalPrice;
+    private  String edit;
 
 
 

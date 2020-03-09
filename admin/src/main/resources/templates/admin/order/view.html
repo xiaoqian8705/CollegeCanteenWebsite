@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="renderer" content="webkit">
-<title>商家管理</title>
+<title>订单管理</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <!--[if lt IE 9]>
@@ -40,7 +40,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>商家管理</h5>
+                        <h5>订单管理</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -71,7 +71,7 @@
 										<div class="col-sm-2">
 											<select id="searchfield" class="form-control">
 												<!-- value为查找字段名称 -->
-												<option value="user_name">用户名</option>
+												<option value="customer_id">顾客编号</option>
 											</select> 
 											
 										</div>
@@ -90,16 +90,13 @@
 										<th style="padding-left: 10px;">
 											<input type="checkbox" id="cb_selectAll" class="input-lg" style="width:20px;height:20px;"/>
 										</th>
-										<th>id</th>
-										<th>用户名</th>
-										<th>密码</th>
-										<th>电话</th>
-										<th>地址</th>
-										<th>店名</th>
-										<th>类别</th>
-										<th>学校</th>
-										<th>照片</th>
-										<th>状态</th>
+										<th>订单编号</th>
+										<th>下单时间</th>
+<!--										<th>用户</th>-->
+										<th>支付方式</th>
+<!--										<th>总金额</th>-->
+										<th>备注</th>
+										<th>订单状态</th>
 										<th>操作</th>
 									</tr>
 							</thead>
@@ -128,101 +125,49 @@
 					<form id="form">
 							<div class="col-md-12">
 							    <div class="form-group">
-									<label class="col-sm-3 control-label"><font color="#FF0000">*</font>用户名称：</label>
+									<label class="col-sm-3 control-label">订单编号：</label>
 									<div class="col-sm-9">
-									    <!-- 保存修改的主键值 -->
-									    <input type="hidden" name="id" id="id">
-										<input class="form-control" type="text" name="user_name" id="user_name"
-											placeholder="请输入用户名" >
+										<input class="form-control" type="text" name="id" id="id">
 										<span class="help-block m-b-none"></span>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-							   <div class="form-group">
-								<label class="col-sm-3 control-label"><font color="#FF0000">*</font>用户密码：</label>
-								<div class="col-sm-9">
-									<input  class="form-control" type="password" name="password" id="password"
-										placeholder="请输入用户密码" >
-									<span class="help-block m-b-none"></span>
-								</div>
-							 </div>
-						  </div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">电话：</label>
+								<label class="col-sm-3 control-label">下单时间：</label>
 								<div class="col-sm-9">
-									<input  class="form-control" type="text" name="phone" id="phone">
+									<input class="form-control" type="text" name="time" id="time">
 									<span class="help-block m-b-none"></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">地址：</label>
+								<label class="col-sm-3 control-label">支付方式：</label>
 								<div class="col-sm-9">
-									<input  class="form-control" type="text" name="address" id="address">
+									<input class="form-control" type="text" name="pay" id="pay">
 									<span class="help-block m-b-none"></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">店名：</label>
+								<label class="col-sm-3 control-label">备注：</label>
 								<div class="col-sm-9">
-									<input  class="form-control" type="text" name="shop_name" id="shop_name">
+									<input class="form-control" type="text" name="edit" id="edit">
 									<span class="help-block m-b-none"></span>
 								</div>
 							</div>
 						</div>
-						  <div class="col-md-12">
-							    <div class="form-group">
-									<label class="col-sm-3 control-label">类别：</label>
-									<div class="col-sm-9">
-										<select id="shop_type" class="form-control">
-											<option value="西餐">西餐</option>
-											<option value="简餐">简餐</option>
-											<option value="面食">面食</option>
-											<option value="水果">水果</option>
-											<option value="甜品">甜品</option>
-											<option value="饮品">饮品</option>
-										</select> 
-										<span class="help-block m-b-none"></span>
-									</div>
-								</div>
-						  </div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">学校：</label>
+								<label class="col-sm-3 control-label">订单状态：</label>
 								<div class="col-sm-9">
-									<input  class="form-control" type="text" name="school" id="school">
+									<input class="form-control" type="text" name="status" id="status">
 									<span class="help-block m-b-none"></span>
 								</div>
 							</div>
 						</div>
-							<div class="col-md-12">
-							    <div class="form-group">
-									<label class="col-sm-3 control-label">图片：</label>
-									<div class="col-sm-9">
-										<img alt="image" id="photo" style="width: 150px; height: 150px;" class="img-circle" >
-									</div>									
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div id="fileupload" class="dropzone" >
-								    
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<label class="col-sm-3 control-label">状态：</label>
-									<div class="col-sm-9">
-										<input  class="form-control" type="text" name="status" id="status">
-										<span class="help-block m-b-none"></span>
-									</div>
-								</div>
-							</div>
-
 					</form>
 					<!-- 表单布局结束 -->
 				</div>
@@ -238,38 +183,6 @@
 <!-- 模态窗口结束 -->
  
 
-<!-- 分配角色模态窗口 -->   
-<!--<div class="modal fade" data-backdrop="static" id="rolemodal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				</button>
-				<h2 class="modal-title" id="rolemodaltitle">分配角色</h2>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					&lt;!&ndash; 表单布局 &ndash;&gt;
-					<form id="roleform">
-							<div class="col-md-12">
-							&lt;!&ndash; 保存修改的主键值 &ndash;&gt;
-						    <input type="hidden" name="userid" id="userid">
-						    <ul id="tree" class="ztree"></ul>
-							</div>
-					</form>
-					&lt;!&ndash; 表单布局结束 &ndash;&gt;
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-white"
-					data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary" id="btn_rolesave">保存</button>
-			</div>
-		</div>
-	</div>
-</div>-->
-<!-- 模态窗口结束 -->
 
 	<!-- 全局js -->
 	<script th:src="@{/static/js/jquery.min.js?v=2.1.4}"></script>
@@ -319,22 +232,17 @@
         		data: {
         		   id:id,//第一个id为参数名，第二个为参数值
         		},
-        		url: "/SellerUserInfoController/select",//后台处理地址
+        		url: "/OrderController/select",//后台处理地址
         		success: function (data) {
         		   //console.log(data);
         		   if(data.success){
         			    //设置数据
         			    $("#id").val(data.obj.id);//修改数据必须有主键值
-
-        	    		$("#user_name").val(data.obj.user_name);
-        	    		$("#password").val(data.obj.password);
-        	    		$("#phone").val(data.obj.phone);
-        	    		$("#address").val(data.obj.address);
-        	    		$("#shop_name").val(data.obj.shop_name);
-        	    		$("#shop_type").val(data.shop_type);
-					   $("#school").val(data.school);
-					   $('#photo').attr("src",data.photo);
-					    $("#status").val(data.status);
+        			    
+        	    		$("#time").val(data.obj.time);
+        	    		$("#pay").val(data.obj.pay);
+        	    		$("#edit").val(data.obj.edit);
+        	    		$("#status").val(data.obj.status);
 
         	    		$("#modaltitle").text("修改");
         	    		$("#modal").modal("show");
@@ -347,33 +255,8 @@
 	    }//end edit
 	    
 	    //表格行中的按钮点击事件
-	    function role(id){
-	    	//异步获取数据
-        	$.ajax({
-        		type: "get",
-        		data: {
-        		   id:id,//第一个id为参数名，第二个为参数值
-        		},
-        		url: "/RoleController/tree",//后台处理地址
-        		success: function (data) {
-        			//ztree
-                	var setting = {
-                			check: {
-                				enable: true
-                			},
-                			data: {
-                				simpleData: {
-                					enable: true
-                				}
-                			}
-                	};
-                	$.fn.zTree.init($("#tree"), setting, data);
-                	$("#userid").val(id);//通过隐藏input保存用户id
-        	    	$("#rolemodal").modal("show");
-        		}
-        	}); // end ajax
 
-	    }
+
 	    
         $(document).ready(function () {
         	//datatable
@@ -381,7 +264,7 @@
         		"processing": true,
                 "serverSide": true,
                 "ajax": {
- 	               url: "/SellerUserInfoController/list",
+ 	               url: "/OrderController/list",
  	               type:"post",
  	               data: function (d) { 
  	            	   //把字段名和关键词发送给controller进行查询，自动映射到vo模型的相应属性中
@@ -402,7 +285,7 @@
                      "processing": "正在加载..."
                  },
                  "autoWidth": false,
-                 "pageLength": 5,
+                 "pageLength": 3,
                  "lengthChange": false,
                  "searching": false,
                  "columns": [
@@ -412,21 +295,15 @@
  								return '<input type="checkbox" value="'+data+'" class="input-lg" style="width:20px;height:20px;" />';
  							}
  					},
- 					 {"data":"id","name":"id"},
- 					 {"data":"user_name","name":"user_name"},
- 					 {"data":"password","name":"password"},
-					 {"data":"phone","name":"phone"},
-					 {"data":"address","name":"address"},
-					 {"data":"shop_name","name":"shop_name"},
-					 {"data":"shop_type","name":"shop_type"},
-					 {"data":"school","name":"school"},
-					 {"data":"photo","name":"photo"},
-					  {"data":"status","name":"status"},
-
+ 					{"data":"id","name":"id"},
+ 					{"data":"time","name":"time"},
+ 					{"data":"pay","name":"pay"},
+					 {"data":"edit","name":"edit"},
+					 {"data":"status","name":"status"},
  					//有排序功能必须指定name为字段名称
  					{"data":"id","orderable": false,
  						"render": function ( data, type, full, meta ) {
- 								return '<button id="btn_edit" class="btn btn-primary btn-sm" onclick="edit(\''+data+'\')"><i class="fa fa-edit"></i>&nbsp;查看修改 </button>  <button  class="btn btn-primary btn-sm"><li class="fa fa-edit"></li>&nbsp;通过</button> <button  class="btn btn-primary btn-sm"><li class="fa fa-edit"></li>&nbsp;不通过</button>';
+ 								return '<button id="btn_edit" class="btn btn-primary btn-sm" onclick="edit(\''+data+'\')"><i class="fa fa-edit"></i>&nbsp;查看修改</button> <button id="btn_role" class="btn btn-primary btn-sm" onclick="role(\''+data+'\')"><i class="fa fa-users"></i>&nbsp;分配角色</button>';
  							}
  					},
                   ],
@@ -479,7 +356,7 @@
             		data: {
             		   ids:ids,//第一个ids为参数名，第二个为参数值
             		},
-            		url: "/SellerUserInfoController/delete",//后台处理地址
+            		url: "/OrderController/delete",//后台处理地址
             		success: function (data) {
             		   if(data.success){
             			   toastr.success(data.msg, '删除成功！');
@@ -492,22 +369,19 @@
 
         	});//end btn_del
         	
-        	$("#btn_add").click(function(){
+        	/*$("#btn_add").click(function(){
         		//清空数据
-				$("#user_name").val("");
-				$("#password").val("");
-				$("#phone").val("");
-				$("#address").val("");
-				$("#shop_name").val("");
-				$("#shop_type").val("");
-				$("#school").val("");
-				$('#photo').attr("src","");
-				 $("#status").val("");
-
+        		$("#username").val("");
+        		$("#password").val("");
+        		$("#repassword").val("");
+        		$("#usertype").val("普通用户");
+        		$("#birthday").val("");
+        		$('#photo').attr("src","");
+        		$('#introduce').summernote("code", "");
         		//validator.resetForm();//重置验证
-        		$("#modaltitle").text("添加");
+        		$("#modaltitle").text("添加用户");
         		$("#modal").modal("show");
-        	});//end add
+        	});//end add*/
         	
         	
         	
@@ -536,27 +410,8 @@
             var icon = "<i class='fa fa-times-circle'></i> ";
             validator=$("#form").validate({
                 rules: {
-                    user_name: {
-                        required: true,
-                        minlength: 1
-                    },
-                    password: {
-                        required: true,
-                        minlength: 1
-                    },
-
                 },
-                messages: {
-                    user_name: {
-                        required: icon + "请输入您的用户名",
-                        minlength: icon + "用户名必须1个字符以上"
-                    },
-                    password: {
-                        required: icon + "请输入您的密码",
-                        minlength: icon + "密码必须1个字符以上"
-                    },
 
-                }
             });//end validate
             
             $("#btn_save").click(function(){
@@ -564,25 +419,20 @@
             		//save
             		var markupStr = $('#introduce').summernote('code');
         		    //alert(markupStr);
-            		if($("#modaltitle").text()=="添加"){
+            		/*if($("#modaltitle").text()=="添加用户"){
             			//add
             			//异步添加数据
                     	$.ajax({
                     		type: "post",
                     		data: {
-
-								user_name:$("#user_name").val(),
-								password:$("#password").val(),
-								phone:$("#phone").val(),
-								address:$("#address").val(),
-								shop_name:$("#shop_name").val(),
-								shop_type:$("#shop_type").val(),
-								school:$("#school").val(),
-								photo:$('#photo').attr("src"),
-						      status:$("#status").val(),
-
+                    			username:$("#username").val(),
+                    			password:$("#password").val(),
+                    			usertype:$("#usertype").val(),
+                    			birthday:$("#birthday").val(),
+                    			photo:$('#photo').attr("src"),
+                    			introduce:$('#introduce').summernote("code"),
                     		},
-                    		url: "/SellerUserInfoController/insert",//后台处理地址
+                    		url: "/UserController/insert",//后台处理地址
                     		success: function (data) {
                     		   if(data.success){
                     			   toastr.success(data.msg, '添加成功！');
@@ -593,24 +443,20 @@
                     		   }
                     		}
                     	});  // end ajax
-            		}else{
+            		}else{*/
             			//update
             			//异步修改数据
                     	$.ajax({
                     		type: "post",
                     		data: {
                     			id:$("#id").val(),//主键，从隐藏input获取到
-								user_name:$("#user_name").val(),
-								password:$("#password").val(),
-								phone:$("#phone").val(),
-								address:$("#address").val(),
-								shop_name:$("#shop_name").val(),
-								shop_type:$("#shop_type").val(),
-								school:$("#school").val(),
-								photo:$('#photo').attr("src"),
-								status:$("#status").val(),
+                    			time:$("#time").val(),
+                    			pay:$("#pay").val(),
+                    			edit:$("#edit").val(),
+                    			status:$("#status").val(),
+
                     		},
-                    		url: "/SellerUserInfoController/update",//后台处理地址
+                    		url: "/OrderController/update",//后台处理地址
                     		success: function (data) {
                     		   if(data.success){
                     			   toastr.success(data.msg, '修改成功！');
@@ -622,90 +468,13 @@
                     		}
                     	});  // end ajax
             		}          		
-            		
-            	}        		
+
         	});//end btn_save
         	
         	//summernote
         	 $('#introduce').summernote({
                  lang: 'zh-CN'
              });
-        	
-        	 //Dropzone
-        	 Dropzone.autoDiscover = false;// 禁止对所有元素的自动查找，由于Dropzone会自动查找class为dropzone的元素
-        	 var myDropzone = new Dropzone("#fileupload", { 
-        		  url: "/SellerUserInfoController/upload",
-        		  method:"post",  //也可用put
-        	      paramName:"file", //后台接收文件参数名称，默认为file
-        	      maxFiles:1,//一次性上传的文件数量上限
-        	      maxFilesize: 2, //文件大小，单位：MB
-        	      acceptedFiles: ".jpg,.gif,.png,.jpeg", //上传的类型
-        	      addRemoveLinks: true,
-        	      dictRemoveFile: "删除",
-        	      dictCancelUpload: "取消",
-        	      dictMaxFilesExceeded: "最多上传一个文件",
-        	      dictFallbackMessage: '不好意思，您的浏览器不支持！',//如果浏览器不支持,默认消息将被替换为这个文本。默认为 “Your browser does not support drag'n'drop file uploads.”。
-        	      dictInvalidFileType: '该文件不允许上传',//如果文件类型不匹配时显示的错误消息。
-        	      dictResponseError:'上传失败，请稍后重试',//如果服务器响应是无效的时候显示的错误消息。
-        	      autoProcessQueue: true,
-        	      //uploadMultiple:true,//允许多个文件上传
-        	      clickable: true,
-        	      init:function(){
-        	        this.on("addedfile", function(file) {
-        	          //上传文件时触发的事件
-        	          console.log("addedfile");
-        	        });
-        	        this.on("success",function(file,data){
-        	          //上传成功触发的事件
-        	          console.log("success");
-        	          console.log(data);
-        	          if(data.success){
-        	        	  $('#photo').attr("src", data.obj);
-        	        	  toastr.success("上传成功！", '成功');
-        	        	  myDropzone.removeFile(file);//上传界面的预览删除
-        	          }
-        	          
-        	        });
-        	        this.on("error",function (file,data) {
-        	          //上传失败触发的事件
-        	          console.log("error");
-        	        });
-        	        this.on("removedfile",function(file){
-        	          //删除文件时触发的方法
-        	          console.log("removedfile");
-        	        });
-        	      },
-        	 });// end Dropzone
-        	 
-        	/* $("#btn_rolesave").click(function(){
-        		 var treeObj = $.fn.zTree.getZTreeObj("tree");
-            	 var nodes = treeObj.getCheckedNodes(true);
-            	 ids="";
-            	 for(i=0;i<nodes.length;i++){
-            		 if(i<nodes.length - 1){
-            			 ids = ids + nodes[i].id + ",";
-            		 }else{
-            			 ids = ids + nodes[i].id;
-            		 }            		 
-            	 }            	 
-            	 //console.log(ids);
-            	 $.ajax({
-             		type: "post",
-             		data: {
-             		   id:$("#userid").val(),
-             		   ids:ids
-             		},
-             		url: "/RoleController/role",//后台处理地址
-             		success: function (data) {
-             			if(data.success){
-          	        	  toastr.success("分配角色成功！", '成功');
-          	        	  $("#rolemodal").modal("hide");
-          	            }
-             		}
-             	}); // end ajax
-            
-        	 });//end rolesave*/
-        	 
         });//end ready
     </script>
 </body>

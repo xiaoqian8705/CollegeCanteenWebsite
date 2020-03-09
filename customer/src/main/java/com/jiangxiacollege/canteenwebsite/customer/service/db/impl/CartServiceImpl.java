@@ -2,6 +2,7 @@ package com.jiangxiacollege.canteenwebsite.customer.service.db.impl;
 
 
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jiangxiacollege.canteenwebsite.customer.common.ResponseBase;
 import com.jiangxiacollege.canteenwebsite.customer.mapper.CartMapper;
@@ -9,9 +10,11 @@ import com.jiangxiacollege.canteenwebsite.customer.service.db.CartService;
 import com.jiangxiacollege.canteenwebsite.customer.table.Cart;
 import com.jiangxiacollege.canteenwebsite.customer.vo.CartVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -27,7 +30,6 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
                 BigDecimal totalPrice = cartVo.getPrice().multiply(new BigDecimal(cartVo.getNumber()));
                 cartVo.setTotalPrice(totalPrice);
             }*/
-
             responseBase.setData(list);
 
         }catch (Exception e){
@@ -37,4 +39,45 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
         }
         return responseBase;
     }
+
+    @Transactional
+    @Override
+    public ResponseBase addCart(Cart cart) {
+        ResponseBase responseBase = new ResponseBase();
+        int flag = this.baseMapper.insert(cart);
+        if (flag>0){
+            responseBase.setCode(0);
+            responseBase.setData(flag);
+        }else {
+            responseBase.setCode(1);
+            responseBase.setData("加入购物车错误");
+        }
+        return responseBase;
+    }
+
+
+
+    @Override
+    public ResponseBase delCart(Long customerId, Long productId) {
+
+        ResponseBase responseBase = new ResponseBase();
+        UpdateWrapper<Cart> uw = new UpdateWrapper<>();
+        uw.eq("customer_id",customerId);
+        uw.eq("product_id",productId);
+        int flag = this.baseMapper.delete(uw);
+        if (flag>0){
+            responseBase.setCode(0);
+            responseBase.setData(flag);
+        }else {
+            responseBase.setCode(1);
+            responseBase.setData("删除商品错误");
+        }
+        return responseBase;
+
+
+
+
+    }
+
+
 }

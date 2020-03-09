@@ -68,4 +68,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         }
         return responseBase;
     }
+
+    @Override
+    public List<Product> getList(List productIdList) {
+        List<Product> list = (List<Product>) this.listByIds(productIdList);
+       return list;
+
+    }
 }

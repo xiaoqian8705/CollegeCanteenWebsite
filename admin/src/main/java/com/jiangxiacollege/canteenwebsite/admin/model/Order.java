@@ -8,7 +8,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 @Data
-@TableName("notice")
+@TableName("order")
 public class Order {
 
     @TableId

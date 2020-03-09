@@ -98,6 +98,7 @@ $(function(){
   </div>
   <div class="foodtext">
    <div class="foodname_a">
+
     <h1 th:text="${product.name}"></h1>
    </div>
    <div class="price_a">
@@ -117,7 +118,9 @@ $(function(){
       <p>累计评价</p>
      </li>
    </ul>
-   <form action="../cart">
+   <form action="../addCart" method="post">
+       <input name ="proId" type="text" th:value="${product.id}" hidden/>
+       <input name ="sellId" type="text" th:value="${product.sellerId}" hidden/>
    <div class="BuyNo">
     <span>我要买：<input type="number" name="Number" required autofocus min="1" value="1"/>份</span>
 

@@ -99,6 +99,7 @@
 <!--    <th>配送费用</th>-->
     <th>共计金额</th>
     <th>收货地址</th>
+    <th>备注</th>
 
     <tr th:each="orderDetail:${orderDetail}">
      <td th:text="${orderDetail.id}"></td>
@@ -110,6 +111,7 @@
 <!--     <td>￥2.00</td>-->
      <td th:text="${orderDetail.totalPrice}"></td>
      <td th:text="${orderDetail.address}"></td>
+     <td th:text="${orderDetail.edit}"></td>
      <!--如果未付款，则显示立即付款按钮-->
      <td style="display:none;"><a href="#" target="_blank">立即付款</a></td>
     </tr>

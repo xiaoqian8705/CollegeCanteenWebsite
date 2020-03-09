@@ -3,6 +3,8 @@ package com.jiangxiacollege.canteenwebsite.admin.model;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,6 +12,7 @@ import java.io.Serializable;
 @Data
 @TableName("seller_user_info")
 public class SellerUserInfo implements Serializable {
+    @JsonSerialize(using = ToStringSerializer.class)
     @TableId
     private Long id;
     private String user_name;

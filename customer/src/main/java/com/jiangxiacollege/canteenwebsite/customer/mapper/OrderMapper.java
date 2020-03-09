@@ -14,7 +14,7 @@ public interface OrderMapper extends BaseMapper<Order> {
         @Select("SELECT ord.*,cui.user_name  name  FROM `order` ord LEFT JOIN customer_user_info cui ON ord.customer_id = cui.id where ord.customer_id = #{customerId}")
         List<OrderVo> orderInfo(String customerId);
 
- @Select("SELECT od.id,sui.shop_name ,p.name,od.number,p.price,a.address\n" +
+ @Select("SELECT od.id,sui.shop_name ,p.name,od.number,p.price,o.edit,a.address\n" +
          "FROM `order_detail` od \n" +
          "LEFT JOIN `order` o ON od.order_id = o.id\n" +
          "LEFT JOIN `product` p ON od.product_id = p.id \n" +

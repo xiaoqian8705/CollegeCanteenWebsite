@@ -27,4 +27,7 @@ public class DetailController {
         model.addAttribute("productList",sp);
         return "/shop";
     }
+
+
+
 }

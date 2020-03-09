@@ -28,10 +28,10 @@ public class viewController {
         return "category";
     }
 
-    @RequestMapping( "/confirm_order")
+/*    @RequestMapping( "/confirm_order")
     public String confirmOrder(){
         return "confirm_order";
-    }
+    }*/
 /*
     @RequestMapping( "/detailsp")
     public String detailsp(){

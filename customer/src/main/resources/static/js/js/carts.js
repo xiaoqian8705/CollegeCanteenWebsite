@@ -128,13 +128,19 @@ $(function () {
     var $plus = $('.plus'),
         $reduce = $('.reduce'),
         $all_sum = $('.sum');
+
     $plus.click(function () {
+        var sum1Value = $(this).parents('.list_amount').find('.sum1').val();
+        var cartId =sum1Value.split(":")[0];
+        var productId =sum1Value.split(",")[1];
         var $inputVal = $(this).prev('input'),
             $count = parseInt($inputVal.val())+1,
             $obj = $(this).parents('.amount_box').find('.reduce'),
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
             $priceTotal = $count*parseInt($price.substring(1));
+        var $inputVal1 = $(this).parents('.list_amount').find('.sum1');
+        $inputVal1.val(cartId+':'+$count+','+productId);
         $inputVal.val($count);
         $priceTotalObj.html('￥'+$priceTotal);
         if($inputVal.val()>1 && $obj.hasClass('reSty')){
@@ -184,6 +190,7 @@ $(function () {
         $order_content = $order_lists.parents('.order_content');
         $('.model_bg').fadeIn(300);
         $('.my_model').fadeIn(300);
+
     });
 
     //关闭模态框
@@ -206,6 +213,7 @@ $(function () {
         closeM();
         $sonCheckBox = $('.son_check');
         totalMoney();
+
     })
 
     //======================================总计==========================================
