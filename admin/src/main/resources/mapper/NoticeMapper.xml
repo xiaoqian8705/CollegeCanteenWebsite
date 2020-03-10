@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指明当前xml对应的Mapper -->
+<mapper namespace="com.jiangxiacollege.canteenwebsite.admin.mapper.NoticeMapper">
+    <!-- 多表查询,Select 的as后面的名称必须与NoticeVO属性名大小写一致  -->
+    <select id="selectNoticeListPage" parameterType="com.jiangxiacollege.canteenwebsite.admin.vo.NoticeVO" resultType="com.jiangxiacollege.canteenwebsite.admin.vo.NoticeVO">
+        SELECT
+        g.id as id,
+        g.content as content
+
+        FROM
+        notice g
+
+        WHERE 1=1
+        <if test="content != null">
+            and g.content like  concat('%',#{content},'%')
+        </if>
+
+
+    </select>
+
+
+</mapper>

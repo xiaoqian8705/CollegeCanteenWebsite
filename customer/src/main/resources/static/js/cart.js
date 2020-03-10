@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var dataIndex =[[${cartStat.index+1}]];
 	// 全选        
 	$(".allselect").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
@@ -12,10 +13,8 @@ $(document).ready(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
 			if ($(this).attr("checked")) {
 				$(this).attr("checked", false);
-
 			} else {
 				$(this).attr("checked", true);
-
 			} 
 		});
 		GetCount();
@@ -24,7 +23,6 @@ $(document).ready(function () {
 	$("#cancel").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
 			$(this).attr("checked", false);
-
 		});
 		GetCount();
 	});
@@ -61,7 +59,7 @@ function GetCount() {
 	$("#jz1").css("display", "none");
 	$("#jz2").css("display", "block");
 }
-//ADD:对删除链接进行处理2014-9-20DeathGhost
+//ADD:对删除链接进行处理
     $(document).ready(function(){
 		$("#delcart1").click(function(){
 			$("#table1").remove();
@@ -180,3 +178,5 @@ var data = {"total":0,"rows":[]};
 			$('#cartcontent').datagrid('loadData', data);
 			$('div.cart .total').html('共计金额: ￥'+totalCost);
 		}
+
+// allselect

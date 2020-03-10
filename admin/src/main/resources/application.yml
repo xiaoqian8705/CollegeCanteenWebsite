@@ -1,15 +1,15 @@
 ﻿spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver #冒号后面要有空格，下同
-    url: jdbc:mysql://localhost:3306/oadb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/gxstwm?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: root
   mvc:
     static-path-pattern: /static/** #静态资源映射路径
   thymeleaf:
     prefix: classpath:/templates/
 mybatis-plus:
-  mapper-locations: classpath*:/mapper/**Mapper.xml 
+  mapper-locations: classpath*:/mapper/**Mapper.xml
   type-aliases-package: com.jiangxiacollege.canteenwebsite.admin.model
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印SQL日志，便于调试

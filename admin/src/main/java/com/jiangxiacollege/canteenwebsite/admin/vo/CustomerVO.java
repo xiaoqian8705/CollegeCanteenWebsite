@@ -1,8 +1,6 @@
 package com.jiangxiacollege.canteenwebsite.admin.vo;
 
 
-import java.sql.Timestamp;
-
 public class CustomerVO {
 
     private String id;

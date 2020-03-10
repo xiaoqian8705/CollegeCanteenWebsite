@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import com.jiangxiacollege.canteenwebsite.admin.model.UserRole;
+import com.jiangxiacollege.canteenwebsite.admin.service.RoleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +41,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;// 注入业务层的service
+
+	@Autowired
+	private RoleService roleService;
 
 	// 未加入@ResponseBody用来返回数据给页面
 	@RequestMapping("view")
@@ -183,7 +189,9 @@ public class UserController {
 				loginUser.setPassword("");// 密码不回传
 				j.setObj(loginUser);
 				j.setMsg("登录成功！");
+				UserRole userRole = roleService.getOne(loginUser.getId());
 				session.setAttribute("user", loginUser);// 保存session会话
+				session.setAttribute("roleId",userRole.getSys_role_id());
 			} else {
 				j.setSuccess(false);
 				j.setMsg("登录失败！");

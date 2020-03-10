@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
-<title>用户中心-订单</title>
+<title>用户中心-订单列表</title>
 <meta name="keywords" content="" />
 <meta name="description" content="!" />
 <meta name="author" content=""/>
@@ -16,8 +16,17 @@
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+      <script th:inline="javascript">
+          $(document).ready(function(){
+              var customer=[[${session.USER}]]
+              if(customer!=null&&customer!=""){
+                  $("#d1").hide();
+                  $("#d2").text("欢迎您："+customer ).show();
+              }
+          });
+      </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+       <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -34,9 +43,17 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+       <script>
+           $(document).ready(function () {
+               $("#bt1").click(function(){
+                   var keyword =  $("#fkeyword").val();
+                   window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+               });
+           })
+       </script>
+       <div class="Search_area" id="dd1">
+           <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+           <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -56,12 +73,15 @@
   <ul>
    <li><i></i><a href="../user_center">用户中心首页</a></li>
    <li><i></i><a href="user_orderlist">我的订单</a></li>
-   <li><i></i><a href="../user_address">收货地址</a></li>
-   <li><i></i><a href="../user_message">我的留言</a></li>
-   <li><i></i><a href="../user_coupon">我的优惠券</a></li>
+ <li><i></i><a href="../user_address">收货地址</a></li>
+<!--   <li><i></i><a href="../user_message">我的留言</a></li>-->
+<!--   <li><i></i><a href="../user_coupon">我的优惠券</a></li>-->
    <li><i></i><a href="../user_favorites">我的收藏</a></li>
    <li><i></i><a href="../user_account">账户管理</a></li>
    <li><i></i><a href="#">安全退出</a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
   </ul>
  </nav>
  <article class="U-article Overflow">
@@ -70,17 +90,23 @@
     <table class="Myorder">
      <th class="Font14 FontW">订单编号</th>
      <th class="Font14 FontW">下单时间</th>
-     <th class="Font14 FontW">收件人</th>
+     <th class="Font14 FontW">用户</th>
      <th class="Font14 FontW">订单总金额</th>
      <th class="Font14 FontW">订单状态</th>
      <th class="Font14 FontW">操作</th>
-     <tr>
-      <td class="FontW"><a href="../user_order">201409225367</a></td>
-      <td>2014-09-22 19:21:38</td>
-      <td>DeathGhost</td>
-      <td>￥328.00</td>
-      <td>未付款,未发货</td>
-      <td><a href="#">取消订单</a> | <a href="#">付款</a></td>
+     <tr th:each="order : ${orderList}">
+      <td class="FontW"><a th:href="'../user_order?orderId='+${order.id}" th:text="${order.Id}"></a></td>
+      <td th:text="${order.time}"></td>
+      <td th:text="${order.name}"></td>
+      <td th:text="${order.money}"></td>
+         <p th:switch="${order.status}">
+         <td th:case="0">已送达</td>
+         <td th:case="1">已发货</td>
+         <td th:case="2">未发货</td>
+         <td th:case="3">未付款</td>
+         </p>
+      <td><a href="#">取消订单</a> | <a href="#">付款</a> | <a href="#">确认送达</a> | <a href="#">评论商品</a></td>
+
      </tr>
     </table>
     <div class="TurnPage">

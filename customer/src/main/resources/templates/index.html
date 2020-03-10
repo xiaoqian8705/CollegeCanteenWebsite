@@ -7,9 +7,10 @@
 <meta name="description" content="" />
 <meta name="author" content=""/>
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/static/js/public.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/jqpublic.js"></script>
+<!--    <script type="text/javascript" src="../js/list.js"></script>-->
 </head>
 
 <body>
@@ -33,9 +34,9 @@
    <div class="RightNav">
     <a href="../user_center">用户中心</a>
     <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a>
-    <a href="../cart">购物车（0）</a>
+    <a href="../cart">购物车</a>
     <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a>
-    <a href="#">商家入驻</a>
+    <a href="../register_seller">商家入驻</a>
    </div>
   </div>
  </section>
@@ -50,9 +51,19 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+       <script>
+           $(document).ready(function () {
+               $("#bt1").click(function(){
+               var keyword =  $("#fkeyword").val();
+                   window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+               });
+           })
+       </script>
+   <div class="Search_area" id="dd1">
+   <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+       <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+<!--       <a id="dd2" class="searchbutton"  href="../sell/listByKeyWord?fkeyword='+keyword+'" >搜索</a>-->
+<!--     <input  type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords">
@@ -92,19 +103,19 @@
  </div>
  <aside class="N-right">
   <div class="N-title">公告栏 </div>
-  <ul class="Orderlist" id="UpRoll">
-   <li>
-   <p>欢迎欢迎热列欢迎</p>
-   <p>本网站便捷好用</p>
+
+  <ul class="Orderlist" id="UpRoll" th:each="notice : ${noticeList}">
+   <li th:text="${notice.content}">
+    <p></p>
    </li>
-   <li>
+   <!--<li>
     <p>欢迎欢迎热列欢迎</p>
     <p>本网站便捷好用</p>
    </li>
    <li>
     <p>欢迎欢迎热列欢迎</p>
     <p>本网站便捷好用</p>
-   </li>
+   </li>-->
   </ul>
   <script>
    var UpRoll = document.getElementById('UpRoll');
@@ -141,58 +152,29 @@
     </p>-->
    </ul>
   <div id="Indexcontent">
-   <ul style="display:block;">
-    <li>
-     <div class="SCcontent">
-     <a href="../detailsp" target="_blank" title="菜品名称">
-      <figure>
-       <img src="../upload/05.jpg">
-       <figcaption>
-       <span class="title">老李家的糖醋鲤鱼</span>
-       <span class="price"><i>￥</i>169.00</span>
-       </figcaption>
-      </figure>
-      </a>
-     <a href="../detailsp" target="_blank" title="菜品名称">
-      <figure>
-       <img src="../upload/04.jpg">
-       <figcaption>
-       <span class="title">老李家的糖醋鲤鱼</span>
-       <span class="price"><i>￥</i>169.00</span>
-       </figcaption>
-      </figure>
-      </a>
-     <a href="../detailsp" target="_blank" title="菜品名称">
-      <figure>
-       <img src="../upload/06.jpg">
-       <figcaption>
-       <span class="title">老李家的糖醋鲤鱼</span>
-       <span class="price"><i>￥</i>169.00</span>
-       </figcaption>
-      </figure>
-      </a>
-        <a href="../detailsp" target="_blank" title="菜品名称">
+ <ul style="display:block;" >
+  <li>
+     <div class="SCcontent"  >
+         <p th:each="product : ${productList}">
+     <a href="../detailsp" target="_blank" th:title="${product.name}">
          <figure>
-             <img src="../upload/04.jpg">
-             <figcaption>
-                 <span class="title">老李家的糖醋鲤鱼</span>
-                 <span class="price"><i>￥</i>169.00</span>
-             </figcaption>
-         </figure>
-     </a>
+       <img th:src="${product.photo}">
+       <figcaption>
+       <span class="title" th:text="${product.name}+'     ￥'+${product.price}"></span>
+     <!--  <span class="price" th:text="${product.price}"><i>￥</i></span>-->
+       </figcaption>
+      </figure>
+      </a>
+         </p>
      </div>
      <div class="bestshop">
-         <a href="../shop" target="_blank" title="店铺名称">
-             <figure>
-                 <img src="../upload/wpjnewlogo.jpg">
-             </figure>
-         </a>
-      <a href="../shop" target="_blank" title="店铺名称">
+     <p  th:each="sellerUserInfo : ${sellerList}">
+      <a href="../shop" target="_blank" th:title="${sellerUserInfo.shopName}">
       <figure>
-       <img src="../upload/wpjnewlogo.jpg">
+       <img th:src="${sellerUserInfo.photo}">
       </figure>
       </a>
-      <a href="../shop" target="_blank" title="店铺名称">
+     <!-- <a href="../shop" target="_blank" title="店铺名称">
       <figure>
        <img src="../upload/weijia.jpg">
       </figure>
@@ -211,8 +193,8 @@
       <figure>
        <img src="../upload/wpjnewlogo.jpg">
       </figure>
-      </a>
-
+      </a>-->
+     </p>
      </div>
     </li>
    </ul>

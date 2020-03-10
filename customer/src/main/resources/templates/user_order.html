@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
 <meta charset="utf-8" />
-<title>订单详情</title>
+<title>用户中心-订单详情</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../style/style.css" rel="stylesheet" type="text/css" />
@@ -15,8 +15,17 @@
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
+   <script th:inline="javascript">
+    $(document).ready(function(){
+     var customer=[[${session.USER}]]
+     if(customer!=null&&customer!=""){
+      $("#d1").hide();
+      $("#d2").text("欢迎您："+customer ).show();
+     }
+    });
+   </script>
    <div class="LeftNav">
-    <a href="../login/register">注册</a>/<a href="../login/login">登录</a>
+    <div id="d1"><a href="../login/register">注册</a>/<a href="../login/login">登录</a></div><div id="d2"></div>
    </div>
    <div class="RightNav">
     <a href="../user_center">用户中心</a> <a href="user_orderlist" target="_blank" title="我的订单">我的订单</a> <a href="../cart">购物车（0）</a> <a href="../user_favorites" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -34,9 +43,20 @@
     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
     <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
    </div>
-   <div class="Search_area"> 
+    <script>
+     $(document).ready(function () {
+      $("#bt1").click(function(){
+       var keyword =  $("#fkeyword").val();
+       window.location.href = '../sell/listByKeyWord?fkeyword='+keyword+'';
+      });
+     })
+    </script>
+    <div class="Search_area" id="dd1">
+     <input id="fkeyword" type="search"  name="keyword" placeholder="请输入..." class="searchbox" />
+     <input id="bt1"  type="button" class="searchbutton" value="搜 索" />
+   <!--<div class="Search_area">
    <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
+   <input type="submit" class="searchbutton" value="搜 索" />-->
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -56,38 +76,46 @@
   <ul>
    <li><i></i><a href="../user_center">用户中心首页</a></li>
    <li><i></i><a href="user_orderlist">我的订单</a></li>
-   <li><i></i><a href="../user_address">收货地址</a></li>
-   <li><i></i><a href="../user_message">我的留言</a></li>
-   <li><i></i><a href="../user_coupon">我的优惠券</a></li>
+ <li><i></i><a href="../user_address">收货地址</a></li>
+<!--   <li><i></i><a href="../user_message">我的留言</a></li>-->
+<!--   <li><i></i><a href="../user_coupon">我的优惠券</a></li>-->
    <li><i></i><a href="../user_favorites">我的收藏</a></li>
    <li><i></i><a href="../user_account">账户管理</a></li>
    <li><i></i><a href="#">安全退出</a></li>
+   <li><a href="#"></a></li>
+   <li><a href="#"></a></li>
+   <li><a href="#"></a></li>
   </ul>
  </nav>
  <article class="U-article Overflow">
   <span class="Font14 FontW Lineheight35 Block">订单信息：</span>
    <table class="U-order-D">
     <th>订单编号</th>
+    <th>店铺名</th>
     <th>订单产品</th>
     <th>订购数量</th>
     <th>单价</th>
-    <th>小计</th>
-    <th>配送费用</th>
+<!--    <th>小计</th>-->
+<!--    <th>配送费用</th>-->
     <th>共计金额</th>
-    <th>付款方式</th>
-    <tr>
-     <td>201409243195</td>
-     <td><a href="../detailsp" target="_blank" title="酸辣土豆丝">酸辣土豆丝</a></td>
-     <td>1</td>
-     <td>￥8.00</td>
-     <td>￥8.00</td>
-     <td>￥2.00</td>
-     <td>￥10.00</td>
-     <td>支付宝</td>
+    <th>收货地址</th>
+    <th>备注</th>
+
+    <tr th:each="orderDetail:${orderDetail}">
+     <td th:text="${orderDetail.id}"></td>
+     <td th:text="${orderDetail.shopName}"></td>
+     <td th:text="${orderDetail.name}"></td>
+     <td th:text="${orderDetail.number}"></td>
+     <td th:text="${orderDetail.price}"></td>
+<!--     <td>￥8.00</td>-->
+<!--     <td>￥2.00</td>-->
+     <td th:text="${orderDetail.totalPrice}"></td>
+     <td th:text="${orderDetail.address}"></td>
+     <td th:text="${orderDetail.edit}"></td>
      <!--如果未付款，则显示立即付款按钮-->
      <td style="display:none;"><a href="#" target="_blank">立即付款</a></td>
     </tr>
-   </table>
+  <!-- </table>
   <span class="Font14 FontW Lineheight35 Block">收件地址：</span>
   <form action="#">
    <table class="U-order-A">
@@ -127,9 +155,10 @@
     </tr>
     <tr>
      <td width="30%" align="right"></td>
-     <!--未付款订单，可以修改地址！-->
+     &lt;!&ndash;未付款订单，可以修改地址！&ndash;&gt;
      <td><input type="submit" name="" value="确认修改地址" class="Submit">（未付款订单，可以修改地址！）</td>
     </tr>
+   </table>-->
    </table>
    </form>
  </article>

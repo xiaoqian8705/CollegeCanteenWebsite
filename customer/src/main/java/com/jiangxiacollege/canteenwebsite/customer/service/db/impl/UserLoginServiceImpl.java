@@ -61,6 +61,7 @@ public class UserLoginServiceImpl extends ServiceImpl<UserLoginMapper, CustomerU
             responseBase.setCode(0);
             responseBase.setMessage("登陆成功");
             request.getSession().setAttribute(ConstantUtils.USER_SESSION_KEY, customerUserInfo.getUserName());
+            request.getSession().setAttribute("userId", result.getId());
         }catch (Exception e){
             log.error(e.getMessage());
             responseBase.setCode(1);
